@@ -1,0 +1,1 @@
+("7.0" ("5c04e3798a3f873d7d47a5c2acc851fd8f7c7831" . "450a48e3578368b23a8bb2e4402efce3a775dfd0") (collects #"gui-debugger" #"marks.rkt") (collects #"mzscheme" #"main.rkt") (collects #"racket" #"base.rkt") (collects #"racket" #"runtime-config.rkt") (collects #"syntax" #"kerncase.rkt"))

@@ -1,0 +1,1 @@
+("7.0" ("194ec6db8cafb2aee43b37391144cd508fc064e2" . "5df7b59d14ce2b764622c347ea604c1a44fb4758") #"/Users/JonRoby/.emacs.d/elpa/racket-mode-20181004.309/racket/mod.rkt" (collects #"racket" #"base.rkt") (collects #"racket" #"contract.rkt") (collects #"racket" #"match.rkt") (collects #"racket" #"runtime-config.rkt") (collects #"racket" #"set.rkt"))

@@ -1,0 +1,1 @@
+("7.0" ("7bfa83fb14b03751a1e81f0fc8481ebce0ef9880" . "53306e6b61a607d320497456d43792f81e40927b") #"/Users/JonRoby/.emacs.d/elpa/racket-mode-20181004.309/racket/util.rkt" (collects #"at-exp" #"lang" #"reader.rkt") (collects #"racket" #"base.rkt") (collects #"racket" #"format.rkt") (collects #"racket" #"runtime-config.rkt"))

@@ -1,0 +1,65 @@
+;; Added by Package.el.  This must come before configurations of
+;; installed packages.  Don't delete this line.  If you don't want it,
+;; just comment it out by adding a semicolon to the start of the line.
+;; You may delete these explanatory comments.
+
+;; reload this file with load-file (so as not to restart emacs every time)
+;; This shows number of matches when C-s for a word
+(anzu-mode +1)
+
+(drag-stuff-global-mode 1)
+(drag-stuff-define-keys)
+
+(with-eval-after-load 'company
+  (define-key company-active-map (kbd "C-n") 'company-select-next)
+  (define-key company-active-map (kbd "C-p") 'company-select-previous)
+  (define-key company-search-map (kbd "C-t") 'company-search-toggle-filtering))
+
+(dumb-jump-mode)
+(setq dumb-jump-selector 'helm)
+(global-set-key (kbd "M-g g") 'dumb-jump-go)
+(global-set-key (kbd "M-g b") 'dumb-jump-back)
+
+(require 'magit)
+(global-set-key (kbd "C-x g") 'magit-status)
+(global-set-key (kbd "C-x m") 'magit-dispatch-popup)
+
+(require 'helm)
+(require 'helm-projectile)
+(helm-projectile-on)
+(global-set-key (kbd "M-x") 'helm-M-x)
+(global-set-key (kbd "C-x C-f") 'helm-find-files)
+(global-set-key (kbd "C-x b") 'helm-buffers-list)
+(global-set-key (kbd "C-x p") 'helm-projectile-switch-project)
+
+;; I believe this uses magit to add project
+;; projectile-add-known-project
+(with-eval-after-load 'projectile
+  (when (require 'magit nil t)
+    (mapc #'projectile-add-known-project
+          (mapcar #'file-name-as-directory (magit-list-repos)))
+    ;; Optionally write to persistent `projectile-known-projects-file'
+    (projectile-save-known-projects)))
+
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(custom-safe-themes
+   (quote
+    ("bf390ecb203806cbe351b966a88fc3036f3ff68cd2547db6ee3676e87327b311" default)))
+ '(package-selected-packages
+   (quote
+    (drag-stuff magit dumb-jump anzu solidity-mode helm-ag haskell-mode helm-projectile projectile company ivy nord-theme))))
+
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(agda2-highlight-datatype-face ((t (:foreground "SteelBlue1"))))
+ '(agda2-highlight-error-face ((t (:foreground "tomato" :underline t))))
+ '(agda2-highlight-function-face ((t (:foreground "dark cyan"))))
+ '(agda2-highlight-inductive-constructor-face ((t (:foreground "SeaGreen3"))))
+ '(agda2-highlight-postulate-face ((t (:foreground "LightSkyBlue2")))))

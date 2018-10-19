@@ -1,0 +1,28 @@
+;;; -*- coding: utf-8 -*-
+
+;; ----- ido-last-directory-list -----
+(
+ ("/Users/JonRoby/" . "Applications/")
+)
+
+;; ----- ido-work-directory-list -----
+(
+ "/Users/JonRoby/.emacs.d/"
+)
+
+;; ----- ido-work-file-list -----
+(
+ "init.el"
+)
+
+;; ----- ido-dir-file-cache -----
+(
+ ("/Users/JonRoby/.emacs.d/" (23480 9177 200651 648000) "elpa/" "init.el" "auto-save-list/" "projectile-bookmarks.eld" "init.el~" "../" "./")
+
+ ("/Users/JonRoby/Applications/" (22521 32747 0 0) "Chrome Canary Apps.localized/" "Chrome Apps.localized/" ".localized" "Wineskin/" "../" "./")
+
+ ("/Users/JonRoby/" (23480 5106 741801 924000) ".zlogout" ".canopy/" "racket-6.12-x86_64-macosx.dmg" ".conda/" ".zlogin" ".openshift/" ".jitsu/" ".viminfo" ".bash_history" ".mongorc.js" ".v8flags.4.6.85.31.JonRoby.json" "jupyter/" ".v8flags.5.1.281.93.JonRoby.json" "material-design-icons.ttf" ".gitconfig" ".v8flags.6.2.414.54.JonRoby.json" ".aws/" ".cache/" ".continuum/" ".python_history" "Downloads/" ".Xauthority" ".pm2/" ".emacs.bak" ".pry_history" ".bash_profile" ".m2/" ".spacemacs" ".vscode/" ".ocamlinit" ".v8flags.3.28.71.19.JonRoby.json" ".babel.json" "Documents/" ".npm/" ".scala_history" ".zprezto/" ".jupyter/" ".Trash/" ".v8flags.5.0.71.35.JonRoby.json" ".emacs~" ".zsh-update" ".gradle/" ".ghc/" ".profile" ".dbshell" "Applications/" ".bash_profileexport_o" ".vimrc" "Movies/" ".ssh/" ".rustup/" "file-icons.ttf" "Hack-v3.002-ttf.zip" ".idlerc/" ".zshenv" ".old_emacs" "package-lock.json" ".bash_aliases" ".byebug_hist" ".dropbox/" "Public/" ".zcompdump-Jon’s MacBook Pro-5.0.8" ".lein/" ".sbt/" ".bash_sessions/" ".cups/" ".cocoapods/" ".android/" ".cargo/" ".node_repl_history" ".emacs.d/" ".bash_profile.backup" ".bash_profile.pysave" ".enstaller4rc" "fontawesome.ttf" "deep-learning-coursera/" "Calibre Library/" "google-cloud-sdk/" "all-the-icons.ttf" ".gdbinit" ".oracle_jre_usage/" ".lesshst" ".mkshrc" ".matplotlib/" ".npmrc" ".irb-history" "Library/" "Desktop/" ".ipython/" ".opam/" ".zsh_history" ".boto" ".v8flags.4.5.103.35.JonRoby.json" "weathericons.ttf" ".zshrc.omz-uninstalled-20170415103456" ".rnd" ".bundle/" ".nvm/" ".v8flags.5.1.281.93.8d600a575bc5fe09365b36bdf8394338.json" "node_modules/" ".zprofile" ".atom/" ".multirust/" "Pictures/" "Creative Cloud Files/" ".psql_history" ".local/" ".mean" ".forwardrc" ".mix/" ".elm/" "all-the-icons-project.json" ".bash_profile~" ".zshrc" "passwords/" ".bashrc" ".subversion/" ".cabal/" ".netrc" ".vagrant.d/" ".rbenv/" ".emacsbeforespacemacs/" ".meteorsession" ".wget-hsts" ".node-completion/" ".#test.js" ".CFUserTextEncoding" ".yarnrc" ".ruby-version" ".powerline-shell.json" ".lldb/" "VirtualBox VMs/" ".electrum/" ".gnupg/" "01e9ef309032ef3cf45c3d32d9e3009f5ca27f93" ".DS_Store" "go/" ".Genymobile/" ".vim/" ".emacs.a/" ".node-gyp/" ".rspec" ".zcompdump-Jon’s MacBook Pro-5.0.5" ".heroku/" ".v8flags.6.2.414.54.8d600a575bc5fe09365b36bdf8394338.json" ".ivy2/" ".gsutil/" ".docker/" ".clojure/" ".eshell/" ".gvm/" ".yarn/" ".bash_profile-anaconda.bak" ".meteor/" "RefurbMe/" "Music/" ".config/" ".hex/" ".zpreztorc" ".idris/" ".forwardrc~" "octicons.ttf" ".stack/" "anaconda/" "../" "./")
+)
+
+;; ----- ido-unc-hosts-cache -----
+t
