@@ -5,11 +5,27 @@
 
 ;; reload this file with load-file (so as not to restart emacs every time)
 
+;; M-m goes to beginning of indentation!
+;; C-M-v will scroll other window!!!
+;; C-M-f / C-M-b movement by balanced expression.
+
+;; Bookmarks
+;; C-x r m - to save bookmark
+;; C-x r b - to jump to bookmark
+;; C-x r l - to list all bookmarks
+
+
 (when (>= emacs-major-version 24)
   (require 'package)
   (package-initialize)
   (add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/") t)
   )
+
+(setq inhibit-splash-screen t)
+(setq inhibit-startup-message t)
+(desktop-save-mode 1) ;; on macOS Sierra this makes app bar black!!!
+
+(setq-default line-spacing 1)
 
 (global-set-key (kbd "C-c e") (lambda () (interactive) (find-file "~/.emacs.d/init.el")))
 
@@ -20,10 +36,16 @@
 (tool-bar-mode -1)
 
 (load-theme 'nord t)
-(require 'powerline)
-(powerline-default-theme)
-(setq powerline-image-apple-rgb t)
+;; (require 'powerline)
+;; (powerline-default-theme)
+;; (setq powerline-image-apple-rgb t)
 ;; (setq ns-use-srgb-colorspace nil)
+
+(setq-default mode-line-format
+	      (list
+	       " %l:%c      "
+	       mode-line-buffer-identification
+	       '(vc-mode vc-mode)))
 
 ;; Set default font
 (set-face-attribute 'default nil
@@ -34,8 +56,49 @@
 
 (set-face-bold-p 'bold nil)
 
+;; (defun xah-beginning-of-line-or-block ()
+;;   (interactive)
+;;   (let (($p (point)))
+;;     (if (or (equal (point) (line-beginning-position))
+;;             (equal last-command this-command ))
+;;         (if (re-search-backward "\n[\t\n ]*\n+" nil "NOERROR")
+;;             (progn
+;;               (skip-chars-backward "\n\t ")
+;;               (forward-char ))
+;;           (goto-char (point-min)))
+;;       (progn
+;;         (back-to-indentation)
+;;         (when (eq $p (point))
+;;           (beginning-of-line))))))
+
+;; (defun xah-end-of-line-or-block ()
+;;   (interactive)
+;;   (if (or (equal (point) (line-end-position))
+;;           (equal last-command this-command ))
+;;       (progn
+;;         (re-search-forward "\n[\t\n ]*\n+" nil "NOERROR" ))
+;;     (end-of-line)))
+
+;; (global-set-key (kbd "C-a") 'xah-beginning-of-line-or-block)
+;; (global-set-key (kbd "C-e") 'xah-end-of-line-or-block)
+
 (global-set-key (kbd "C-,") 'beginning-of-buffer)
 (global-set-key (kbd "C-.") 'end-of-buffer)
+
+(global-set-key (kbd "s-g") 'goto-line)
+
+(global-set-key (kbd "M-n")
+  (lambda ()
+    (interactive)
+    (setq this-command 'next-line)
+    (next-line 4)))
+
+;; replaces backward-sentence
+(global-set-key (kbd "M-p")
+  (lambda ()
+    (interactive)
+    (setq this-command 'previous-line)
+    (previous-line 4)))
 
 
 ;; (global-set-key (kbd "s-t") 'helm-projectile-find-file)
@@ -64,51 +127,7 @@
 (add-hook 'helm-major-mode-hook 'my-buffer-face-mode-variable)
 
 ;; (setq mac-command-modifier 'super)
-(global-set-key (kbd "s-t") 'helm-ag-project-root)
 
-;; (ivy-mode 1)
-;; (setq ivy-height 20)
-;; (setq ivy-use-virtual-buffers t)
-;; (setq ivy-count-format "(%d/%d) ")
-;; (global-set-key (kbd "C-s") 'swiper)
-;; (global-set-key (kbd "M-x") 'counsel-M-x)
-;; (global-set-key (kbd "C-x C-f") 'counsel-find-file)
-;; (global-set-key (kbd "<f1> f") 'counsel-describe-function)
-;; (global-set-key (kbd "<f1> v") 'counsel-describe-variable)
-;; (global-set-key (kbd "<f1> l") 'counsel-find-library)
-;; (global-set-key (kbd "<f2> i") 'counsel-info-lookup-symbol)
-;; (global-set-key (kbd "<f2> u") 'counsel-unicode-char)
-
-;; (global-set-key (kbd "C-l") 'backward-kill-word)
-
-
-(global-set-key (kbd "C-x C-x") (kbd "C-x C-x"))
-
-;; (load-file (let ((coding-system-for-read 'utf-8))
-;;                 (shell-command-to-string "agda-mode locate")))
-
-(setq make-backup-files nil)
-
-(setq js-indent-level 2)
-(setq electric-pair-preserve-balance nil)
-(setq tab-always-indent 'complete)
-
-(require 'multiple-cursors)
-(global-set-key (kbd "s-n") 'mc/mark-next-like-this)
-(global-set-key (kbd "s-p") 'mc/mark-previous-like-this)
-(global-set-key (kbd "s-a") 'mc/mark-all-like-this)
-
-(defun my-pretty-lambda ()
-  "make some word or string show as pretty Unicode symbols"
-  (setq prettify-symbols-alist
-        '(
-          ("lambda" . 955) ; λ
-          )))
-
-(add-hook 'racket-mode-hook 'my-pretty-lambda)
-(global-prettify-symbols-mode 1)
-
-;; This shows number of matches when C-s for a word
 (global-anzu-mode +1)
 
 (drag-stuff-global-mode 1)
@@ -141,12 +160,13 @@
 (require 'helm)
 (require 'helm-projectile)
 (helm-projectile-on)
+(define-key helm-map (kbd "TAB") #'helm-execute-persistent-action) ;; stops tab from going to dired
 (global-set-key (kbd "M-x") 'helm-M-x)
 (global-set-key (kbd "C-x C-f") 'helm-find-files)
 (global-set-key (kbd "C-x b") 'helm-buffers-list)
 (global-set-key (kbd "C-x p") 'helm-projectile-switch-project)
-
-
+(global-set-key (kbd "C-x f") 'helm-projectile-find-file)
+(global-set-key (kbd "C-x n") 'helm-projectile-ag)
 
 
 (custom-set-variables

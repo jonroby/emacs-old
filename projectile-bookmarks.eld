@@ -1,1 +1,1 @@
-("~/Desktop/testmagit/" "~/Desktop/JonRoby/grok/" "~/Desktop/JonRoby/component_development_environment/")
+("~/.emacs.d/" "~/Desktop/testmagit/" "~/Desktop/JonRoby/grok/" "~/Desktop/JonRoby/component_development_environment/")
