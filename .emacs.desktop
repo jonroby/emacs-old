@@ -1,0 +1,31 @@
+;; -*- mode: emacs-lisp; coding: emacs-mule; -*-
+;; --------------------------------------------------------------------------
+;; Desktop File for Emacs
+;; --------------------------------------------------------------------------
+;; Created Sat Oct 20 15:20:29 2018
+;; Desktop file format version 208
+;; Emacs version 26.1
+
+;; Global section:
+(setq desktop-saved-frameset [frameset 1 (23499 43565 377388 0) (desktop . "208") "JonRoby@Jons-MacBook-Pro.local" nil nil ((((minibuffer . t) (font-backend mac-ct) (fontsize . 0) (font . "-*-Source Code Pro-normal-normal-normal-*-15-*-*-*-m-0-iso10646-1") (border-width . 0) (internal-border-width . 2) (right-divider-width . 0) (bottom-divider-width . 0) (vertical-scroll-bars) (horizontal-scroll-bars) (foreground-color . "#D8DEE9") (background-color . "#2E3440") (line-spacing) (left-fringe . 8) (right-fringe . 0) (no-special-glyphs) (undecorated) (ns-appearance . dark) (ns-transparent-titlebar . t) (z-group) (no-focus-on-map) (no-accept-focus) (menu-bar-lines . 0) (tool-bar-lines . 0) (title) (icon-type) (auto-raise) (auto-lower) (cursor-type . box) (scroll-bar-width . 0) (scroll-bar-height . 0) (alpha) (fullscreen) (display-type . color) (background-mode . dark) (cursor-color . "#D8DEE9") (environment) (scroll-bar-background . "#4C566A") (frameset--id . "3482-2B0B-0C5F-765F") (frameset--mini t . t) (modeline . t) (unsplittable) (icon-name) (display . "Jons-MacBook-Pro.local") (explicit-name) (tool-bar-position . top) (visibility . t) (height . 44) (width . 80) (left . 708) (top . 23)) ((min-height . 4) (min-width . 10) (min-height-ignore . 3) (min-width-ignore . 4) (min-height-safe . 1) (min-width-safe . 2) (min-pixel-height . 76) (min-pixel-width . 90) (min-pixel-height-ignore . 57) (min-pixel-width-ignore . 36) (min-pixel-height-safe . 19) (min-pixel-width-safe . 18)) leaf (pixel-width . 728) (pixel-height . 817) (total-width . 80) (total-height . 43) (normal-height . 1.0) (normal-width . 1.0) (buffer "hw1.rkt" (selected . t) (hscroll . 0) (fringes 8 0 nil) (margins 1) (scroll-bars nil 0 t nil 0 t) (vscroll . 0) (dedicated) (point . 1) (start . 1))))])
+(setq desktop-missing-file-warning nil)
+(setq tags-file-name nil)
+(setq tags-table-list nil)
+(setq search-ring '("header" "lambda" "after" "setq de" "header" "mode-line" "mode-l" "lef" "Source" "spac" "ns" "left-marg" "globa" "global-" "num" "linum"))
+(setq regexp-search-ring nil)
+(setq register-alist nil)
+(setq file-name-history '("~/.emacs.d/init.el" "~/Desktop/testmagit/nodeServer/#server.js#" "~/.emacs.d/init.el" "~/.emacs.d/projectile-bookmarks.eld" "~/Desktop/JonRoby/grok/programmingLanguages/Unit2/week1/hw4test.rkt" "~/Desktop/JonRoby/grok/programmingLanguages/Unit2/week1/hw1.rkt" "~/Desktop/JonRoby/grok/programmingLanguages/Unit2/week1/11_mconsForMutablePairs.rkt" "~/Desktop/JonRoby/grok/programmingLanguages/Unit2/week1/12_delayedEvaluation.rkt" "~/Desktop/JonRoby/grok/programmingLanguages/Unit2/week1/13_avoidUnnecessaryComputations.rkt" "~/Desktop/JonRoby/grok/programmingLanguages/Unit2/week1/14_delayAndForce.rkt" "~/Desktop/JonRoby/grok/programmingLanguages/Unit2/week1/06_cond.rkt" "~/Desktop/Fandor/noir/.babelrc" "~/Desktop/Fandor/noir/bin/sync-assets.js" "~/Desktop/testmagit/nodeServer/server.js" "~/Desktop/JonRoby/grok/programmingLanguages/Unit1/week1/test.sml" "~/Desktop/JonRoby/grok/programmingLanguages/Unit1/week1/week1.sml" "~/Desktop/noir/src/server/graphql/types/movie-type.js" "~/Desktop/noir/src/server/graphql/schema.js" "~/Desktop/noir/src/components/AwardsShowsScreen/AwardsShowsContent/AwardsShowsContent.jsx" "~/Desktop/testmagit/test.js" "~/Desktop/testing/package.json" "~/Desktop/JonRoby/grok/ethereumBasics/inbox/compile.js" "~/Desktop/JonRoby/yo/README.md" "~/.emacs.d/.emacs.desktop"))
+
+;; Buffer section -- buffers listed in same order as in buffer list:
+(desktop-create-buffer 208
+  "/Users/JonRoby/Desktop/JonRoby/grok/programmingLanguages/Unit2/week1/hw1.rkt"
+  "hw1.rkt"
+  'racket-mode
+  '(anzu-mode drag-stuff-mode company-mode magit-file-mode projectile-mode hs-minor-mode)
+  1
+  '(nil nil)
+  nil
+  nil
+  '((indent-tabs-mode) (buffer-display-time 23499 43526 626620 0) (buffer-file-coding-system . utf-8-dos))
+  '((mark-ring nil)))
+

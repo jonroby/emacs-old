@@ -14,38 +14,58 @@
 ;; C-x r b - to jump to bookmark
 ;; C-x r l - to list all bookmarks
 
-
 (when (>= emacs-major-version 24)
   (require 'package)
   (package-initialize)
   (add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/") t)
   )
 
-(setq inhibit-splash-screen t)
-(setq inhibit-startup-message t)
-(desktop-save-mode 1) ;; on macOS Sierra this makes app bar black!!!
-
-(setq-default line-spacing 1)
-
-(global-set-key (kbd "C-c e") (lambda () (interactive) (find-file "~/.emacs.d/init.el")))
-
-(global-display-line-numbers-mode)
-
 (menu-bar-mode -1)
 (toggle-scroll-bar -1)
 (tool-bar-mode -1)
 
+(setq inhibit-splash-screen t)
+(setq inhibit-startup-message t)
+
+;; If you want try to write a hook that only allows the header line for programming contexts
+;; And not for helm. Helm doesn't seem to have a hook so the way is to use prog-mode-hook.
+;; (add-hook 'prog-mode-hook (lambda () (setq header-line-format nil))) ???
+(setq-default header-line-format " ")
+
+;; on macOS Sierra desktop-save-mode makes app bar black, no clue why. However below does the same.
+;; This also makes helm gray highlight flush on the right side.
+;; However it also makes line numbering off.
+;; Why all of these side effects?
+(desktop-save-mode 1) ;; This remembers where I last had emacs.
+
+;; Setting title bar to transparent background. 
+(add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
+(add-to-list 'default-frame-alist '(ns-appearance . dark))
+(setq ns-use-proxy-icon nil)
+(setq frame-title-format nil)
+(setq-default line-spacing 1) ;; default line spacing but can increase as you want.
+(setq-default border-width 40)
+
+;; If you ever want to add global numbering back:
+;; (global-linum-mode 1)
+;; (setq linum-format "%d ")
+;; (add-hook 'eshell-mode-hook (lambda () (setq linum-format " ")))
+(setq-default left-margin-width 1)
+
 (load-theme 'nord t)
-;; (require 'powerline)
-;; (powerline-default-theme)
-;; (setq powerline-image-apple-rgb t)
-;; (setq ns-use-srgb-colorspace nil)
+
+;; (tooltip-mode nil)
+(electric-indent-mode 1)
+(electric-pair-mode 1)
 
 (setq-default mode-line-format
 	      (list
-	       " %l:%c      "
+	       "  %l:%c      "
 	       mode-line-buffer-identification
 	       '(vc-mode vc-mode)))
+
+;; This will constantly hook up vcs and magit (though it may be quite CPU intensive)
+;; (setq auto-revert-check-vc-info t)
 
 ;; Set default font
 (set-face-attribute 'default nil
@@ -82,10 +102,19 @@
 ;; (global-set-key (kbd "C-a") 'xah-beginning-of-line-or-block)
 ;; (global-set-key (kbd "C-e") 'xah-end-of-line-or-block)
 
+(global-set-key (kbd "C-c e") (lambda () (interactive) (find-file "~/.emacs.d/init.el")))
+
+
 (global-set-key (kbd "C-,") 'beginning-of-buffer)
 (global-set-key (kbd "C-.") 'end-of-buffer)
 
 (global-set-key (kbd "s-g") 'goto-line)
+
+(global-set-key (kbd "C-'") 'avy-goto-char-2)
+(global-set-key (kbd "C-;") 'avy-goto-word-1)
+(global-set-key (kbd "C-x C-p") 'avy-pop-mark)
+;; (global-set-key (kbd "C-'") 'avy-goto-char)
+;; (global-set-key (kbd "C-'") 'avy-goto-line)
 
 (global-set-key (kbd "M-n")
   (lambda ()
@@ -99,19 +128,6 @@
     (interactive)
     (setq this-command 'previous-line)
     (previous-line 4)))
-
-
-;; (global-set-key (kbd "s-t") 'helm-projectile-find-file)
-;; (global-set-key (kbd "M-g j") 'dumb-jump-go)
-;; (global-set-key (kbd "M-g b") 'dumb-jump-back)
-;; (global-set-key (kbd "M-g q") 'dumb-jump-quick-look)
-;; (global-set-key (kbd "<f1>") 'goto-line)
-
-;; (projectile-mode +1)
-
-;; (global-set-key (kbd "C-x p") 'projectile-command-map)
-
-
 
 ;; Use variable width font faces in current buffer
 (defun my-buffer-face-mode-variable ()
@@ -131,8 +147,10 @@
 (global-anzu-mode +1)
 
 (drag-stuff-global-mode 1)
-(drag-stuff-define-keys)
+(drag-stuff-define-keys) ;; Use left right top bottom arrows
 
+(global-company-mode 1)
+(setq company-idle-delay 0)
 (with-eval-after-load 'company
   (define-key company-active-map (kbd "C-n") 'company-select-next)
   (define-key company-active-map (kbd "C-p") 'company-select-previous)
@@ -168,6 +186,32 @@
 (global-set-key (kbd "C-x f") 'helm-projectile-find-file)
 (global-set-key (kbd "C-x n") 'helm-projectile-ag)
 
+(eval-after-load 'helm
+  (lambda () 
+    (set-face-attribute 'helm-source-header nil
+		    :weight 'normal
+                    :width 'normal
+                    :height 150)))
+
+;; Hide Helm's extra informational mode lines
+(fset 'helm-display-mode-line #'ignore)
+(add-hook 'helm-after-initialize-hook
+          (defun hide-mode-line-in-helm-buffer ()
+            "Hide mode line in `helm-buffer'."
+            (with-helm-buffer
+              (setq-local mode-line-format nil))))
+
+;; Temporary fix to hide ./ and ../ files from helm-find-files
+;; Unfortunately this will leave you unable to navigate in empty directories.
+(advice-add 'helm-ff-filter-candidate-one-by-one
+        :around (lambda (fcn file)
+                  (unless (string-match "\\(?:/\\|\\`\\)\\.\\{1,2\\}\\'" file)
+                    (funcall fcn file))))
+
+(setq eshell-prompt-function
+  (lambda ()
+    (concat (eshell/pwd) "\n"
+      ">")))
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -179,9 +223,12 @@
     ("bf390ecb203806cbe351b966a88fc3036f3ff68cd2547db6ee3676e87327b311" default)))
  '(package-selected-packages
    (quote
-    (dumb-jump drag-stuff anzu multiple-cursors powerline magit racket-mode sml-mode solidity-mode helm-ag haskell-mode helm-projectile projectile company ivy nord-theme))))
+    (rainbow-delimiters npm-mode yasnippet avy aggressive-indent dumb-jump drag-stuff anzu multiple-cursors powerline magit racket-mode sml-mode solidity-mode helm-ag haskell-mode helm-projectile projectile company ivy nord-theme))))
 
 (custom-set-faces
+ ;; (set-face-background 'header-line )
+ '(header-line ((t (:height 100 :background "#2E3440"))))
+
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
