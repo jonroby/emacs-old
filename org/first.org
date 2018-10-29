@@ -1,0 +1,32 @@
+* Tasks
+** DONE Start new org file for tutorial (C-c C-t)
+   CLOSED: [2018-10-22 Mon 22:41]
+** TODO Outline document
+** TODO Write introduction
+
+* Introduction
+This is some body text underneath a headline. To write a link:
+[ [link] [description] ] with no spaces! So. [[link][description]]
+
+** Obtaining org-mode
+Tutorial was written at [[google.com][google]]. Hitting C-c C-o is org-open-at-point
+which will add star at bottom. [[file:~/.emacs.d/init.el::(setq%20org-log-done%20t)][init]]
+
+
+** Installation
+** Configuration
+
+* The basics
+** Creating a new file
+   SCHEDULED: <2018-10-25 Thu>
+** Simple task list
+   Use C-c C-t to say you're done. For a new todo Shift-M-ENT
+** Using headlines to struture a document
+** Links to other places
+For a link to another place. Go to the file. C-c l. Then go to org file.
+Hit C-c C-l. Hit tab. Then enter the first letter of the link that matches.
+Then give a description.
+
+** Adding notes to a task
+** Scheduling an appointment
+** Using the agenda

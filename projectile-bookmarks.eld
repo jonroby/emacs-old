@@ -1,1 +1,1 @@
-("~/Desktop/JonRoby/grok/" "~/.emacs.d/" "~/Desktop/testmagit/" "~/Desktop/noir/" "~/Desktop/Fandor/noir/" "~/Desktop/JonRoby/yo/" "~/Desktop/JonRoby/component_development_environment/")
+("~/.emacs.d/" "~/Desktop/testmagit/" "~/Desktop/JonRoby/grok/" "/usr/local/Cellar/minimal-racket/7.0/share/racket/collects/racket/" "~/Desktop/JonRoby/yo/" "~/Desktop/noir/" "~/Desktop/Fandor/noir/" "~/Desktop/JonRoby/component_development_environment/")

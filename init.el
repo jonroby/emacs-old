@@ -210,8 +210,58 @@
 
 (setq eshell-prompt-function
   (lambda ()
-    (concat (eshell/pwd) "\n"
-      ">")))
+    (concat " $ ")))
+
+;; (require 'eshell)
+;; (require 'em-smart)
+
+(setq helm-show-completion-display-function #'helm-show-completion-default-display-function)
+
+(global-set-key (kbd "C-x h") 'helm-eshell-history)
+;; (setq eshell-where-to-jump 'begin)
+;; (setq eshell-review-quick-commands nil)
+;; (setq eshell-smart-space-goes-to-end t)
+
+
+(require 'org)
+(define-key global-map "\C-cl" 'org-store-link)
+(define-key global-map "\C-ca" 'org-agenda)
+(setq org-log-done t)
+
+(require 'org-bullets)
+(add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
+(setq org-agenda-files (list "~/.emacs.d/org/first.org"
+                             "~/.emacs.d/org/life.org" 
+                             "~/.emacs.d/org/writing.org"
+			     "~/.emacs.d/org/fandor.org"
+			     ))
+(org-update-checkbox-count t)
+(setq org-html-checkbox-type 'unicode)
+;; (add-hook 'org-mode-hook
+;;           (lambda ()
+;;             (push '("[ ]" .  "🞎") prettify-symbols-alist)
+;;             (push '("[X]" . "🗷" ) prettify-symbols-alist)
+;;             (push '("[-]" . "◫" ) prettify-symbols-alist)
+;;             (prettify-symbols-mode)
+;;             ))
+
+(require 'multiple-cursors)
+(global-set-key (kbd "s-n") 'mc/mark-next-like-this)
+(global-set-key (kbd "s-p") 'mc/mark-previous-like-this)
+(global-set-key (kbd "s-a") 'mc/mark-all-like-this)
+
+(require 'browse-kill-ring)
+(global-set-key (kbd "C-c k") 'browse-kill-ring)
+(setq browse-url-browser-function 'browse-url-default-macosx-browser)
+
+(global-set-key (kbd "C-x C-b") 'ibuffer)
+(autoload 'ibuffer "ibuffer" "List buffers." t)
+
+(require 'engine-mode)
+(engine-mode t)
+(defengine google
+  "http://www.google.com/search?ie=utf-8&oe=utf-8&q=%s"
+  :keybinding "g")
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -221,16 +271,16 @@
  '(custom-safe-themes
    (quote
     ("bf390ecb203806cbe351b966a88fc3036f3ff68cd2547db6ee3676e87327b311" default)))
+ '(engine-mode t)
+ '(org-agenda-files nil)
  '(package-selected-packages
    (quote
-    (rainbow-delimiters npm-mode yasnippet avy aggressive-indent dumb-jump drag-stuff anzu multiple-cursors powerline magit racket-mode sml-mode solidity-mode helm-ag haskell-mode helm-projectile projectile company ivy nord-theme))))
+    (restclient olivetti fountain-mode engine-mode browse-kill-ring org-bullets rainbow-delimiters npm-mode yasnippet avy aggressive-indent dumb-jump drag-stuff anzu multiple-cursors powerline magit racket-mode sml-mode solidity-mode helm-ag haskell-mode helm-projectile projectile company ivy nord-theme)))
+ '(show-paren-mode t))
 
 (custom-set-faces
- ;; (set-face-background 'header-line )
- '(header-line ((t (:height 100 :background "#2E3440"))))
-
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- )
+ '(header-line ((t (:height 100 :background "#2E3440")))))

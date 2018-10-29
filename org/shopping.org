@@ -1,0 +1,8 @@
+* Food
+
+* Supplies
+** TODO Detergent
+** TODO Cleaning wipes
+** TODO Hangars
+
+* Amazon

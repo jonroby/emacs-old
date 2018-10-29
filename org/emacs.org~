@@ -1,0 +1,82 @@
+* Todo
+** TODO Eshell
+   - [ ] https://www.reddit.com/r/emacs/comments/6y3q4k/yes_eshell_is_my_main_shell/
+   - [ ] Output to buffer/Handle large amounts of text
+     - [ ] Why can't I fuzzy search shell out?
+     - [ ] Why can't I browse the different prompts of my shell session.
+     - [ ] Why can't I copy/paste without a mouse?
+   - [ ] Breaks when you start with space bar
+   - [ ] Breaks when you start with pressing space bar
+   - [ ] Styling
+   - [ ] Conventions
+   - [ ] 
+
+** DONE Kill and Yank
+   CLOSED: [2018-10-23 Tue 19:14]
+
+
+** TODO Orgmode
+   - [ ] Numbering for todos.
+   - [ ] C-, is bound to an agenda action. Either rebind or.
+
+** TODO Yasnippet
+
+** TODO Restclient Emacs
+   http://codelearn.me/2017/10/22/restclient.html
+
+** TODO Magit
+   - [ ] Add instructions
+
+** TODO Indium
+
+** TODO Tramp (ssh)
+** TODO Web dev (web-dev section from emacs rocks)
+
+** TODO Styling
+   - [ ] Prettier pops (no yellow ones)
+   - [ ] Prettier magit highlighting
+   - [ ] Better emacs logo
+   - [ ] Helm highlight doesn’t go to end of line (leaves a gap) (is this due for scroll bars?)
+   - [ ] File icons (?)
+
+** TODO Errors
+   - [ ] Get to bottom of messages file: Invalid face attribute :weight (quote normal)
+
+** TODO Browser Eww? (Documentation)
+** Things you've done:
+   ~pop-buffer (using avy) jump back to last position~
+   ~avy~
+   ~helm-imenu~
+   ~anzu~
+   ~drag-stuff.el~
+   ~aggressive indent (disable by default)~
+   ~turn on electric indent and electric pair mode for function completion~
+   ~company~
+   ~dumbjump~
+   ~magit~
+   ~helm-projectile-search-root~
+   ~remap helm-projectile-find-file~
+   ~persist added projectile directories~
+   ~helm-projectile-switch-project~
+   ~improve powerline~
+   ~have emacs not open up ugly window~
+   ~have emacs open up where it was last closed~
+   ~only go up by x amount of lines~
+   ~don’t let tab go to dired~
+   ~hide file pngs and black text at top of emacs~
+   ~when using helm-projectile or other features hide all nonsense info~
+   ~C-x C-f hide current directory and go out directory~
+   ~more spacing at top of file~
+   ~eshell - spacing on left side, since no numbers~
+   ~Org mode basics~
+   clean up file and add notes
+
+
+* Docs
+
+** Kill and Yank
+   C-w    Kill
+   C-y    Yank
+   M-y    After C-y, cycles through kill ring
+   C-c k  Browse kill ring
+   
