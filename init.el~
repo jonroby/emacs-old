@@ -213,7 +213,7 @@
     (concat " $ ")))
 
 ;; (require 'eshell)
-(require 'em-smart)
+;; (require 'em-smart)
 
 (setq helm-show-completion-display-function #'helm-show-completion-default-display-function)
 
@@ -275,7 +275,7 @@
  '(org-agenda-files nil)
  '(package-selected-packages
    (quote
-    (restclient olivetti fountain-mode engine-mode browse-kill-ring org-bullets rainbow-delimiters npm-mode yasnippet avy aggressive-indent dumb-jump drag-stuff anzu multiple-cursors powerline magit racket-mode sml-mode solidity-mode helm-ag haskell-mode helm-projectile projectile company ivy nord-theme)))
+    (exec-path-from-shell restclient olivetti fountain-mode engine-mode browse-kill-ring org-bullets rainbow-delimiters npm-mode yasnippet avy aggressive-indent dumb-jump drag-stuff anzu multiple-cursors powerline magit racket-mode sml-mode solidity-mode helm-ag haskell-mode helm-projectile projectile company ivy nord-theme)))
  '(show-paren-mode t))
 
 (custom-set-faces
