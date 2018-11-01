@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: Content-Type
+# key: c
+# --
+Content-Type: application/json

@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: cu
+# key: cu
+# --
+Content-Type: application/x-www-form-urlencoded
