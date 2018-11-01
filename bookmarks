@@ -1,0 +1,13 @@
+;;;; Emacs Bookmark Format Version 1 ;;;; -*- coding: utf-8-emacs -*- 
+;;; This format is meant to be slightly human-readable;
+;;; nevertheless, you probably don't want to edit it.
+;;; -*- End Of Bookmark File Format Version Stamp -*-
+(("emacs.d"
+ (filename . "/Users/JonRoby/.emacs.d/")
+ (presel . "/Users/JonRoby/.emacs.d/org")
+ (handler . helm-ff-bookmark-jump))
+("restclient"
+ (filename . "/Users/JonRoby/.emacs.d/restclient/")
+ (presel . "/Users/JonRoby/.emacs.d/restclient/content_service.http")
+ (handler . helm-ff-bookmark-jump))
+)
