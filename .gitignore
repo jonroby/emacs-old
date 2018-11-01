@@ -1,4 +1,4 @@
-restclient/noir.http
-restclient/fandorql.http
-restclient/content_service.http
-restclient/matinee.http
+restclient/noir*
+restclient/fandorql*
+restclient/content_service*
+restclient/matinee*
