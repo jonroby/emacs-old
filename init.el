@@ -19,6 +19,9 @@
   (package-initialize)
   (add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/") t))
 
+(require 'indium)
+(add-hook 'js-mode-hook #'indium-interaction-mode)
+
 (when (memq window-system '(mac ns x))
   (exec-path-from-shell-initialize))
 
@@ -105,8 +108,15 @@
 ;; (global-set-key (kbd "C-a") 'xah-beginning-of-line-or-block)
 ;; (global-set-key (kbd "C-e") 'xah-end-of-line-or-block)
 
-(global-set-key (kbd "C-c e") (lambda () (interactive) (find-file "~/.emacs.d/init.el")))
+(global-set-key (kbd "M-o") 'ace-window)
+(setq aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l))
 
+(yas-reload-all)
+(add-hook 'prog-mode-hook #'yas-minor-mode)
+
+;; (use-package yassnippet :ensure t)
+
+(global-set-key (kbd "C-c e") (lambda () (interactive) (find-file "~/.emacs.d/init.el")))
 
 ;; (use-package exec-path-from-shell
 ;;   :ensure t
@@ -125,22 +135,11 @@
 
 (global-set-key (kbd "C-'") 'avy-goto-char-2)
 (global-set-key (kbd "C-;") 'avy-goto-word-1)
+(global-set-key (kbd "C-]") 'avy-goto-line)
 (global-set-key (kbd "C-x C-p") 'avy-pop-mark)
 ;; (global-set-key (kbd "C-'") 'avy-goto-char)
 ;; (global-set-key (kbd "C-'") 'avy-goto-line)
 
-(global-set-key (kbd "M-n")
-  (lambda ()
-    (interactive)
-    (setq this-command 'next-line)
-    (next-line 4)))
-
-;; replaces backward-sentence
-(global-set-key (kbd "M-p")
-  (lambda ()
-    (interactive)
-    (setq this-command 'previous-line)
-    (previous-line 4)))
 
 ;; Use variable width font faces in current buffer
 ;;  "Set font to a variable width (proportional) fonts in current buffer"
@@ -160,7 +159,9 @@
 (global-anzu-mode +1)
 
 (drag-stuff-global-mode 1)
-(drag-stuff-define-keys) ;; Use left right top bottom arrows
+;; (drag-stuff-define-keys) ;; Use left right top bottom arrows
+(global-set-key (kbd "M-p") 'drag-stuff-up)
+(global-set-key (kbd "M-n") 'drag-stuff-down)
 
 (global-company-mode 1)
 (setq company-idle-delay 0)
@@ -267,6 +268,8 @@
 (global-set-key (kbd "C-c k") 'browse-kill-ring)
 (setq browse-url-browser-function 'browse-url-default-macosx-browser)
 
+(global-set-key (kbd "M-y") 'helm-show-kill-ring)
+
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 (autoload 'ibuffer "ibuffer" "List buffers." t)
 
@@ -298,21 +301,22 @@
   (eshell "new")
   (rename-buffer name)
   (cd dir)
-  (insert cmd)
-  (eshell-send-input))
+  (when (not (equal cmd ""))
+      (insert cmd)
+      (eshell-send-input)))
 
 (defun fandor-open ()
   (interactive)
-  ;; (eshell-dir "noir sl" "~/code/noir")
-  ;; (eshell-dir "fandorql sl" "~/code/fandorql")
-  ;; (eshell-dir "matinee sl" "~/code/matinee")
-  ;; (eshell-dir "content_service sl" "~/code/content_service")
+  (eshell-dir "noir sl" "~/code/noir" "")
+  (eshell-dir "fandorql sl" "~/code/fandorql" "")
+  (eshell-dir "matinee sl" "~/code/matinee" "")
+  (eshell-dir "content_service sl" "~/code/content_service" "")
   (eshell-dir "noir sv" "~/code/noir" "n 6.14.4 && npm start")
   (eshell-dir "fandorql sv" "~/code/fandorql" "n 8.12.0 && npm start")
   (eshell-dir "matinee sv" "~/code/matinee" "bundle install && rails s -p 3001")
   (eshell-dir "content_service sv" "~/code/content_service" "bundle install && rails s"))
 
-(setq eshell-buffer-maximum-lines 500)
+(setq eshell-buffer-maximum-lines 1000)
 (defun eos/truncate-eshell-buffers ()
   "Truncates all eshell buffers"
   (interactive)
@@ -334,6 +338,18 @@
   :keybinding "g")
 
 
+
+
+
+;; LANGUAGE SPECIFIC
+(yas-global-mode 1)
+
+(setq js-indent-level 2)
+
+
+(add-to-list 'auto-mode-alist '("\\.http\\'" . restclient-mode))
+
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -346,7 +362,7 @@
  '(org-agenda-files nil)
  '(package-selected-packages
    (quote
-    (exec-path-from-shell restclient olivetti fountain-mode engine-mode browse-kill-ring org-bullets rainbow-delimiters npm-mode yasnippet avy aggressive-indent dumb-jump drag-stuff anzu multiple-cursors powerline magit racket-mode sml-mode solidity-mode helm-ag haskell-mode helm-projectile projectile company ivy nord-theme)))
+    (yasnippet-snippets indium ace-window exec-path-from-shell restclient olivetti fountain-mode engine-mode browse-kill-ring org-bullets rainbow-delimiters npm-mode yasnippet avy aggressive-indent dumb-jump drag-stuff anzu multiple-cursors powerline magit racket-mode sml-mode solidity-mode helm-ag haskell-mode helm-projectile projectile company ivy nord-theme)))
  '(show-paren-mode t))
 
 (custom-set-faces

@@ -17,8 +17,14 @@
 (when (>= emacs-major-version 24)
   (require 'package)
   (package-initialize)
-  (add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/") t)
-  )
+  (add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/") t))
+
+(require 'indium)
+(add-hook 'js-mode-hook #'indium-interaction-mode)
+
+(when (memq window-system '(mac ns x))
+  (exec-path-from-shell-initialize))
+
 
 (menu-bar-mode -1)
 (toggle-scroll-bar -1)
@@ -36,7 +42,7 @@
 ;; This also makes helm gray highlight flush on the right side.
 ;; However it also makes line numbering off.
 ;; Why all of these side effects?
-(desktop-save-mode 1) ;; This remembers where I last had emacs.
+;; (desktop-save-mode 1) ;; This remembers where I last had emacs.
 
 ;; Setting title bar to transparent background. 
 (add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
@@ -102,7 +108,21 @@
 ;; (global-set-key (kbd "C-a") 'xah-beginning-of-line-or-block)
 ;; (global-set-key (kbd "C-e") 'xah-end-of-line-or-block)
 
+(global-set-key (kbd "M-o") 'ace-window)
+(setq aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l))
+
+;; (use-package yassnippet :ensure t)
+
 (global-set-key (kbd "C-c e") (lambda () (interactive) (find-file "~/.emacs.d/init.el")))
+
+;; (use-package exec-path-from-shell
+;;   :ensure t
+;;   :if (memq window-system '(mac ns x))
+;;   :config
+;;   (setq exec-path-from-shell-variables '("PATH" "GOPATH"))
+;;   (exec-path-from-shell-initialize))
+
+(exec-path-from-shell-copy-env "NVM_DIR")
 
 
 (global-set-key (kbd "C-,") 'beginning-of-buffer)
@@ -130,17 +150,17 @@
     (previous-line 4)))
 
 ;; Use variable width font faces in current buffer
-(defun my-buffer-face-mode-variable ()
-  "Set font to a variable width (proportional) fonts in current buffer"
-  (interactive)
-  (setq buffer-face-mode-face '(
-		    :family "Source Code Pro"
-                    :height 100
-                    :weight 'normal
-                    :width 'normal))
-  (buffer-face-mode))
+;;  "Set font to a variable width (proportional) fonts in current buffer"
+;; (defun my-buffer-face-mode-variable ()
+  ;; (interactive)
+  ;; (setq buffer-face-mode-face '(
+  ;; 		    :family "Source Code Pro"
+  ;;                   :height 100
+  ;;                   :weight 'normal
+  ;;                   :width 'normal))
+  ;; (buffer-face-mode))
 
-(add-hook 'helm-major-mode-hook 'my-buffer-face-mode-variable)
+;; (add-hook 'helm-major-mode-hook 'my-buffer-face-mode-variable)
 
 ;; (setq mac-command-modifier 'super)
 
@@ -257,11 +277,70 @@
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 (autoload 'ibuffer "ibuffer" "List buffers." t)
 
+;; https://www.emacswiki.org/emacs/IbufferMode
+(setq ibuffer-saved-filter-groups
+      (quote (("default"
+	           ("shells" (or
+                              (name . "noir sl")
+			      (name . "fandorql sl")
+			      (name . "matinee sl")
+			      (name . "content_service sl")))
+                   ("servers" (or
+                              (name . "noir sv")
+			      (name . "fandorql sv")
+			      (name . "matinee sv")
+			      (name . "content_service sv")))))))
+(add-hook 'ibuffer-mode-hook
+	  (lambda ()
+	    (ibuffer-switch-to-saved-filter-groups "default")))
+		   
+(defun eshell/clear ()
+  "clear the eshell buffer."
+  (interactive)
+  (let ((inhibit-read-only t))
+    (erase-buffer)))
+
+(defun eshell-dir (name dir cmd)
+  (interactive)
+  (eshell "new")
+  (rename-buffer name)
+  (cd dir)
+  (when (not (equal cmd ""))
+      (insert cmd)
+      (eshell-send-input)))
+
+(defun fandor-open ()
+  (interactive)
+  (eshell-dir "noir sl" "~/code/noir" "")
+  (eshell-dir "fandorql sl" "~/code/fandorql" "")
+  (eshell-dir "matinee sl" "~/code/matinee" "")
+  (eshell-dir "content_service sl" "~/code/content_service" "")
+  (eshell-dir "noir sv" "~/code/noir" "n 6.14.4 && npm start")
+  (eshell-dir "fandorql sv" "~/code/fandorql" "n 8.12.0 && npm start")
+  (eshell-dir "matinee sv" "~/code/matinee" "bundle install && rails s -p 3001")
+  (eshell-dir "content_service sv" "~/code/content_service" "bundle install && rails s"))
+
+(setq eshell-buffer-maximum-lines 1000)
+(defun eos/truncate-eshell-buffers ()
+  "Truncates all eshell buffers"
+  (interactive)
+  (save-current-buffer
+    (dolist (buffer (buffer-list t))
+      (set-buffer buffer)
+      (when (eq major-mode 'eshell-mode)
+        (eshell-truncate-buffer)))))
+;; After being idle for 5 seconds, truncate all the eshell-buffers if
+;; needed. If this needs to be canceled, you can run `(cancel-timer
+;; eos/eshell-truncate-timer)'
+(setq eos/eshell-truncate-timer
+      (run-with-idle-timer 5 t #'eos/truncate-eshell-buffers))
+
 (require 'engine-mode)
 (engine-mode t)
 (defengine google
   "http://www.google.com/search?ie=utf-8&oe=utf-8&q=%s"
   :keybinding "g")
+
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -275,7 +354,7 @@
  '(org-agenda-files nil)
  '(package-selected-packages
    (quote
-    (exec-path-from-shell restclient olivetti fountain-mode engine-mode browse-kill-ring org-bullets rainbow-delimiters npm-mode yasnippet avy aggressive-indent dumb-jump drag-stuff anzu multiple-cursors powerline magit racket-mode sml-mode solidity-mode helm-ag haskell-mode helm-projectile projectile company ivy nord-theme)))
+    (indium ace-window exec-path-from-shell restclient olivetti fountain-mode engine-mode browse-kill-ring org-bullets rainbow-delimiters npm-mode yasnippet avy aggressive-indent dumb-jump drag-stuff anzu multiple-cursors powerline magit racket-mode sml-mode solidity-mode helm-ag haskell-mode helm-projectile projectile company ivy nord-theme)))
  '(show-paren-mode t))
 
 (custom-set-faces

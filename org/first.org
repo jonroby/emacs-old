@@ -30,3 +30,10 @@ Then give a description.
 ** Adding notes to a task
 ** Scheduling an appointment
 ** Using the agenda
+For node debugging, use helm-top to find process (would be nice to c&p):
+node inspect -p <node-pid>
+
+For indium: How to get inline comments
+How to delete all indium processes rather than manually doing them?
+How to do Chromium stuff?
+(Non-indium specific) What does it mean to connect to existing process?

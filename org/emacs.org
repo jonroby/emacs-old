@@ -72,6 +72,9 @@
    clean up file and add notes
 
 
+
+
+
 * Docs
 
 ** Kill and Yank
@@ -82,3 +85,28 @@
    
 ** Screenplay
    Use fountain-mode and olivetti-mode. There is also imenu.
+** Bookmarks
+
+   C-x r m -> Set bookmark
+   C-x r l -> List bookmarks
+   M-x rename-bookmark
+
+
+** Undo and Redo
+   C-/ undo
+   C-g C-/ redo and undo
+
+** Rest
+https://www.reddit.com/r/emacs/comments/8jagau/yasnippet_doesnt_load_my_snippet_how_to_reloadall/
+
+Here are some tips on how you can get started with learning emacs and elisp:
+Learn the distinction between major-modes and minor-modes
+Learn about hooks and advices which will allow you to run specific functions when a major-mode is started or before running a function.
+Learn how to use help functionality in emacs. You can get all the infromation you need about emacs features within emacs. You can get help about a function, a variable, a major mode, a face, etc..
+Learn about customize feature in emacs. This will allow you to set the value of variables related to a major-mode or a minor-mode
+Learn about faces in emacs and how you can customize them for your themes, etc..
+Learn the distinction between setq, setq-local and setq-default: these allow you to set the value of a variable in your emacs config
+Learn about all the use-package features: when to use :init vs :config, :hook, :defer, :ensure, etc.. A good place to start would be the official github page for use-package: here
+The defaults that emacs comes with are not so beginner friendly. I highly suggest you look at expert emacs users and see how they setup their configuration
+Learn how you can define your own functions and how you can define lamda functions.
+Here is a basic intro on elisp: https://github.com/chrisdone/elisp-guide Here is a list of noteworthy emacs configuration. I took inspiration from abo-abo, kaushal modi, wilfred huges.
