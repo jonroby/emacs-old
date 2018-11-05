@@ -3,6 +3,7 @@ restclient/fandorql*
 restclient/content_service*
 restclient/matinee*
 org/life*
+org/fandor*
 writing/sy*
 projectile-bookmarks.eld
 projectile.cache
