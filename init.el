@@ -14,16 +14,32 @@
 ;; C-x r b - to jump to bookmark
 ;; C-x r l - to list all bookmarks
 
+;; This is only needed once, near the top of the file
+
 (when (>= emacs-major-version 24)
   (require 'package)
   (package-initialize)
   (add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/") t))
 
-(require 'indium)
-(add-hook 'js-mode-hook #'indium-interaction-mode)
+(eval-when-compile
+  (require 'use-package))
 
 (when (memq window-system '(mac ns x))
   (exec-path-from-shell-initialize))
+
+(setq make-backup-files nil)
+
+(global-set-key (kbd "S-C-<left>") 'shrink-window-horizontally)
+(global-set-key (kbd "S-C-<right>") 'enlarge-window-horizontally)
+(global-set-key (kbd "S-C-<down>") 'shrink-window)
+(global-set-key (kbd "S-C-<up>") 'enlarge-window)
+
+(require 'indium)
+;; (add-hook 'js-mode-hook #'indium-interaction-mode)
+(global-set-key (kbd "C-c d j") 'indium-launch)
+;; (add-hook 'indium-debugger-major-mode
+;;   (lambda ()
+;;     (define-key indium-debugger-mode-map (kbd "x") 'indium-quit)))
 
 
 (menu-bar-mode -1)
@@ -42,7 +58,7 @@
 ;; This also makes helm gray highlight flush on the right side.
 ;; However it also makes line numbering off.
 ;; Why all of these side effects?
-;; (desktop-save-mode 1) ;; This remembers where I last had emacs.
+(desktop-save-mode 1) ;; This remembers where I last had emacs.
 
 ;; Setting title bar to transparent background. 
 (add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
@@ -56,7 +72,17 @@
 ;; (global-linum-mode 1)
 ;; (setq linum-format "%d ")
 ;; (add-hook 'eshell-mode-hook (lambda () (setq linum-format " ")))
-(setq-default left-margin-width 1)
+;; (setq linum-format " %d ")
+;; (setq-default left-margin-width 1)
+;; native line numbers
+
+;; (setq-default 
+              
+;;               display-line-numbers-width 0 
+;;               display-line-numbers-widen t)
+;; (set-face-attribute 'line-number nil)
+;; (set-face-attribute 'line-number-current-line nil
+;;                     :foreground "#4C566A")
 
 (load-theme 'nord t)
 
@@ -67,8 +93,8 @@
 (setq-default mode-line-format
 	      (list
 	       "  %l:%c      "
-	       mode-line-buffer-identification
-	       '(vc-mode vc-mode)))
+	       mode-line-buffer-identification))
+;; '(vc-mode vc-mode)
 
 ;; This will constantly hook up vcs and magit (though it may be quite CPU intensive)
 ;; (setq auto-revert-check-vc-info t)
@@ -108,8 +134,10 @@
 ;; (global-set-key (kbd "C-a") 'xah-beginning-of-line-or-block)
 ;; (global-set-key (kbd "C-e") 'xah-end-of-line-or-block)
 
-(global-set-key (kbd "M-o") 'ace-window)
-(setq aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l))
+;; (global-set-key (kbd "M-o") 'ace-window)
+(global-set-key (kbd "M-o") 'other-window)
+;; rewrite so only use when 4 (5?) or greater windows.
+;; (setq aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l))
 
 (yas-reload-all)
 (add-hook 'prog-mode-hook #'yas-minor-mode)
@@ -133,8 +161,8 @@
 
 (global-set-key (kbd "s-g") 'goto-line)
 
-(global-set-key (kbd "C-'") 'avy-goto-char-2)
 (global-set-key (kbd "C-;") 'avy-goto-word-1)
+(global-set-key (kbd "C-'") 'avy-goto-char-in-line)
 (global-set-key (kbd "C-]") 'avy-goto-line)
 (global-set-key (kbd "C-x C-p") 'avy-pop-mark)
 ;; (global-set-key (kbd "C-'") 'avy-goto-char)
@@ -222,9 +250,30 @@
                   (unless (string-match "\\(?:/\\|\\`\\)\\.\\{1,2\\}\\'" file)
                     (funcall fcn file))))
 
+
+ (defun shortened-path (path max-len)
+   "Return a modified version of `path', replacing some components
+   with single characters starting from the left to try and get
+   the path down to `max-len'"
+   (let* ((components (split-string (abbreviate-file-name path) "/"))
+	  (len (+ (1- (length components))
+		  (reduce '+ components :key 'length)))
+	  (str ""))
+     (while (and (> len max-len)
+		 (cdr components))
+       (setq str (concat str (if (= 0 (length (car components)))
+				 "/"
+			       (string (elt (car components) 0) ?/)))
+	     len (- len (1- (length (car components))))
+	     components (cdr components)))
+     (concat str (reduce (lambda (a b) (concat a "/" b)) components))))
+
+ (defun rjs-eshell-prompt-function ()
+   (concat (shortened-path (eshell/pwd) 40)
+	   (if (= (user-uid) 0) " # " " $ ")))
+
 (setq eshell-prompt-function
-  (lambda ()
-    (concat " $ ")))
+  'rjs-eshell-prompt-function)
 
 ;; (require 'eshell)
 ;; (require 'em-smart)
@@ -296,6 +345,13 @@
   (let ((inhibit-read-only t))
     (erase-buffer)))
 
+;; (defun eshell/clear ()
+;;   "Clear the eshell buffer."
+;;   (let ((inhibit-read-only t))
+;;     (erase-buffer)
+;;     (eshell-send-input)))
+
+
 (defun eshell-dir (name dir cmd)
   (interactive)
   (eshell "new")
@@ -331,6 +387,8 @@
 (setq eos/eshell-truncate-timer
       (run-with-idle-timer 5 t #'eos/truncate-eshell-buffers))
 
+
+
 (require 'engine-mode)
 (engine-mode t)
 (defengine google
@@ -342,9 +400,186 @@
 
 
 ;; LANGUAGE SPECIFIC
+
+;; I believe this code allows flycheck to look at local node_modules rather than the global.
+;; But notice that I use js2 mode in the first and flycheck in the second.
+;; It may not be doing what I think. flycheck-verify with the executable found in local node_modules
+;; was working and is what prompted this code change:
+  ;; typescript-tslint
+  ;;   - may enable:         yes
+  ;;   - executable:         Found at /Users/JonRoby/Desktop/mod-cli/node_modules/.bin/tslint
+  ;;   - configuration file: Found at "/Users/JonRoby/Desktop/mod-cli/tslint.json"
+(eval-after-load 'js2-mode
+  '(add-hook 'js2-mode-hook #'add-node-modules-path))
+(eval-after-load 'typescript-mode
+  '(add-hook 'flycheck-mode-hook #'add-node-modules-path))
+
+
+
+
 (yas-global-mode 1)
 
 (setq js-indent-level 2)
+
+;; For projects that use js for jsx try:
+;; (add-to-list 'auto-mode-alist '("components\\/.*\\.js\\'" . rjsx-mode))
+(require 'js2-mode)
+(add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
+(add-to-list 'interpreter-mode-alist '("node" . js2-mode))
+
+
+
+;; Tide
+(require 'flycheck)
+
+(defun setup-tide-mode ()
+  (interactive)
+  (tide-setup)
+  (flycheck-mode +1)
+  (setq flycheck-check-syntax-automatically '(save mode-enabled))
+  (eldoc-mode +1)
+  (tide-hl-identifier-mode +1)
+  ;; company is an optional dependency. You have to
+  ;; install it separately via package-install
+  ;; `M-x package-install [ret] company`
+  (company-mode +1))
+
+;; aligns annotation to the right hand side
+(setq company-tooltip-align-annotations t)
+
+;; formats the buffer before saving
+(add-hook 'before-save-hook 'tide-format-before-save)
+
+(add-hook 'typescript-mode-hook #'setup-tide-mode)
+
+
+
+
+
+
+
+;; Adds comment styling for shebangs
+(setq js2-skip-preprocessor-directives t)
+
+(setq js2-mode-show-parse-errors nil)
+(setq js2-mode-show-strict-warnings nil)
+
+
+
+
+(setq-default left-fringe-width 16)
+
+;; (setq-default right-fringe-width 10)
+
+;; (set-face-attribute 'fringe nil :background "blue")
+
+(define-fringe-bitmap 'flycheck-fringe-bitmap-ball
+    (vector #b00000000
+            #b11111110
+            #b11111110
+            #b11111110
+            #b11111110
+	    #b11111110
+            #b11111110))
+
+(flycheck-define-error-level 'error
+  :severity 2
+  :compilation-level 2
+  :overlay-category 'flycheck-error-overlay
+  :fringe-bitmap 'vertical-bar
+  :fringe-face 'flycheck-fringe-error
+  :error-list-face 'flycheck-error-list-error)
+(flycheck-define-error-level 'info
+  :severity 1
+  :compilation-level 2
+  :overlay-category 'flycheck-info-overlay
+  :fringe-bitmap 'vertical-bar
+  :fringe-face 'flycheck-fringe-info
+  :info-list-face 'flycheck-info-list-error)
+
+(flycheck-define-error-level 'warning
+  :severity 0
+  :compilation-level 2
+  :overlay-category 'flycheck-warning-overlay
+  :fringe-bitmap 'vertical-bar
+  :fringe-face 'flycheck-fringe-warning
+  :warning-list-face 'flycheck-warning-list-error)
+
+
+
+
+
+
+
+(add-hook 'js2-mode-hook
+          (lambda ()
+            (define-key js2-mode-map (kbd "C-c f l") 'flycheck-list-errors)
+            (define-key js2-mode-map (kbd "C-c f n") 'flycheck-next-error)
+            (define-key js2-mode-map (kbd "C-c f p") 'flycheck-previous-error)
+            (define-key js2-mode-map (kbd "C-c f f") 'flycheck-first-error)))
+
+;; (add-hook 'js2-mode-hook 'prettier-js-mode)
+
+;; (defun comint-clear-buffer ()
+;;   (interactive)
+;;   (let ((comint-buffer-maximum-size 0))
+;;     (comint-truncate-buffer)))
+
+;; let's bind the new command to a keycombo
+;; (define-key comint-mode-map "C-c C-t" 'comint-clear-buffer)
+
+
+
+
+(require 'nodejs-repl)
+
+(defun nodejs-repl-send-region-and-clear (start end)
+  "Send the current region to the `nodejs-repl-process'"
+  (interactive "r")
+  (let ((proc (nodejs-repl--get-or-create-process)))
+    ;; Enclose the region in .editor ... EOF as this is more robust.
+    ;; See: https://github.com/abicky/nodejs-repl.el/issues/17
+    (comint-send-string proc ".editor\n")
+    (comint-send-region proc start end)
+    (comint-send-string proc "\n")
+    (with-current-buffer (process-buffer proc)
+      (comint-send-eof))))
+
+(defun nodejs-repl-send-buffer-and-clear ()
+  "Send the current buffer to the `nodejs-repl-process'"
+  (interactive)
+  (nodejs-repl-send-region-and-clear (point-min) (point-max)))
+
+;; temp solution
+(define-key nodejs-repl-mode-map (kbd "C-c C-t") (lambda () (interactive) (erase-buffer)))
+
+(add-hook 'js2-mode-hook
+  (lambda ()
+    (define-key js-mode-map (kbd "C-c C-b") 'nodejs-repl-send-buffer)
+    (define-key js-mode-map (kbd "C-x C-e") 'nodejs-repl-send-last-expression)
+    (define-key js-mode-map (kbd "C-c C-j") 'nodejs-repl-send-line)
+    (define-key js-mode-map (kbd "C-c C-r") 'nodejs-repl-send-region)
+    (define-key js-mode-map (kbd "C-c C-l") 'nodejs-repl-load-file)
+    (define-key js-mode-map (kbd "C-c C-z") 'nodejs-repl-switch-to-repl)))
+
+
+
+
+
+
+;; http://www.flycheck.org/manual/latest/index.html
+(require 'flycheck)
+
+;; turn on flychecking globally
+(add-hook 'after-init-hook #'global-flycheck-mode)
+
+;; use eslint with web-mode for jsx files
+(flycheck-add-mode 'javascript-eslint 'js2-mode)
+
+;; END LANGUAGE SPECIFIC
+
+
+
 
 
 (add-to-list 'auto-mode-alist '("\\.http\\'" . restclient-mode))
@@ -362,7 +597,7 @@
  '(org-agenda-files nil)
  '(package-selected-packages
    (quote
-    (yasnippet-snippets indium ace-window exec-path-from-shell restclient olivetti fountain-mode engine-mode browse-kill-ring org-bullets rainbow-delimiters npm-mode yasnippet avy aggressive-indent dumb-jump drag-stuff anzu multiple-cursors powerline magit racket-mode sml-mode solidity-mode helm-ag haskell-mode helm-projectile projectile company ivy nord-theme)))
+    (tide flycheck rjsx-mode prettier-js nodejs-repl js-comint yasnippet-snippets indium ace-window exec-path-from-shell restclient olivetti fountain-mode engine-mode browse-kill-ring org-bullets rainbow-delimiters npm-mode yasnippet avy aggressive-indent dumb-jump drag-stuff anzu multiple-cursors powerline magit racket-mode sml-mode solidity-mode helm-ag haskell-mode helm-projectile projectile company ivy nord-theme)))
  '(show-paren-mode t))
 
 (custom-set-faces

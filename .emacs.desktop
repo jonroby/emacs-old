@@ -2,426 +2,114 @@
 ;; --------------------------------------------------------------------------
 ;; Desktop File for Emacs
 ;; --------------------------------------------------------------------------
-;; Created Mon Oct 29 23:06:01 2018
+;; Created Thu Nov 22 13:27:30 2018
 ;; Desktop file format version 208
 ;; Emacs version 26.1
 
 ;; Global section:
-(setq desktop-saved-frameset [frameset 1 (23511 62665 75005 0) (desktop . "208") "JonRoby@Jons-MacBook-Pro.local" nil nil ((((minibuffer . t) (font-backend mac-ct) (fontsize . 0) (font . "-*-Source Code Pro-normal-normal-normal-*-15-*-*-*-m-0-iso10646-1") (border-width . 0) (internal-border-width . 2) (right-divider-width . 0) (bottom-divider-width . 0) (vertical-scroll-bars) (horizontal-scroll-bars) (foreground-color . "#D8DEE9") (background-color . "#2E3440") (line-spacing) (left-fringe . 8) (right-fringe . 0) (no-special-glyphs) (undecorated) (ns-appearance . dark) (ns-transparent-titlebar . t) (z-group) (no-focus-on-map) (no-accept-focus) (menu-bar-lines . 0) (tool-bar-lines . 0) (title) (icon-type) (auto-raise) (auto-lower) (cursor-type . box) (scroll-bar-width . 0) (scroll-bar-height . 0) (alpha) (fullscreen) (display-type . color) (background-mode . dark) (cursor-color . "#D8DEE9") (environment) (scroll-bar-background . "#4C566A") (frameset--id . "3482-2B0B-0C5F-765F") (frameset--mini t . t) (modeline . t) (unsplittable) (icon-name) (display . "Jons-MacBook-Pro.local") (explicit-name) (tool-bar-position . top) (visibility . t) (height . 43) (width . 135) (left . 213) (top . 23)) ((min-height . 4) (min-width . 10) (min-height-ignore . 3) (min-width-ignore . 6) (min-height-safe . 1) (min-width-safe . 2) (min-pixel-height . 76) (min-pixel-width . 90) (min-pixel-height-ignore . 57) (min-pixel-width-ignore . 54) (min-pixel-height-safe . 19) (min-pixel-width-safe . 18)) leaf (pixel-width . 1223) (pixel-height . 798) (total-width . 135) (total-height . 42) (normal-height . 1.0) (normal-width . 1.0) (buffer ".bash_profile" (selected . t) (hscroll . 0) (fringes 8 0 nil) (margins 3) (scroll-bars nil 0 t nil 0 t) (vscroll . 0) (dedicated) (point . 75) (start . 1))))])
+(setq desktop-saved-frameset [frameset 1 (23543 8002 246730 0) (desktop . "208") "JonRoby@Jons-MacBook-Pro.local" nil nil ((((minibuffer . t) (font-backend mac-ct) (fontsize . 0) (font . "-*-Source Code Pro-normal-normal-normal-*-15-*-*-*-m-0-iso10646-1") (border-width . 0) (internal-border-width . 2) (right-divider-width . 0) (bottom-divider-width . 0) (vertical-scroll-bars) (horizontal-scroll-bars) (foreground-color . "#D8DEE9") (background-color . "#2E3440") (line-spacing) (left-fringe . 8) (right-fringe . 0) (no-special-glyphs) (undecorated) (ns-appearance . dark) (ns-transparent-titlebar . t) (z-group) (no-focus-on-map) (no-accept-focus) (menu-bar-lines . 0) (tool-bar-lines . 0) (title) (icon-type) (auto-raise) (auto-lower) (cursor-type . box) (scroll-bar-width . 0) (scroll-bar-height . 0) (alpha) (fullscreen) (display-type . color) (background-mode . dark) (cursor-color . "#D8DEE9") (environment) (scroll-bar-background . "#4C566A") (frameset--id . "3482-2B0B-0C5F-765F") (frameset--mini t . t) (modeline . t) (unsplittable) (icon-name) (display . "Jons-MacBook-Pro.local") (explicit-name) (tool-bar-position . top) (visibility . t) (height . 44) (width . 118) (left . 357) (top . 23)) ((min-height . 8) (min-width . 10) (min-height-ignore . 6) (min-width-ignore . 4) (min-height-safe . 2) (min-width-safe . 2) (min-pixel-height . 152) (min-pixel-width . 90) (min-pixel-height-ignore . 114) (min-pixel-width-ignore . 36) (min-pixel-height-safe . 38) (min-pixel-width-safe . 18)) vc (pixel-width . 1070) (pixel-height . 817) (total-width . 118) (total-height . 43) (normal-height . 1.0) (normal-width . 1.0) (combination-limit) (leaf (pixel-width . 1070) (pixel-height . 418) (total-width . 118) (total-height . 22) (normal-height . 0.5) (normal-width . 1.0) (buffer "init.el" (selected . t) (hscroll . 0) (fringes 16 0 nil) (margins nil) (scroll-bars nil 0 t nil 0 t) (vscroll . 0) (dedicated) (point . 13605) (start . 13257))) (leaf (last . t) (pixel-width . 1070) (pixel-height . 399) (total-width . 118) (total-height . 21) (normal-height . 0.5) (normal-width . 1.0) (buffer " *Flycheck checkers*" (selected) (hscroll . 0) (fringes 16 0 nil) (margins nil) (scroll-bars nil 0 t nil 0 t) (vscroll . 0) (dedicated) (point . 201) (start . 1)))))])
 (setq desktop-missing-file-warning nil)
 (setq tags-file-name nil)
 (setq tags-table-list nil)
-(setq search-ring '("fandor-open" "exec-path" "funny-" "s-n" "eshell" "load" ":loadload" ":load" "global" "s-n" "curso" "eshell" "smar" "eshell" "eshe" "eshell"))
+(setq search-ring '("compose" "tide"))
 (setq regexp-search-ring nil)
 (setq register-alist nil)
-(setq file-name-history '("~/.bash_profile" "~/.bashrc" "~/.emacs.d/init.el" "~/Desktop/JonRoby/grok/programmingLanguages/Unit2/week1/hw4test.rkt" "~/Desktop/JonRoby/grok/programmingLanguages/Unit2/week1/hw1.rkt" "~/Desktop/JonRoby/grok/programmingLanguages/Unit2/week1/12_delayedEvaluation.rkt" "~/Desktop/JonRoby/grok/programmingLanguages/Unit2/week1/13_avoidUnnecessaryComputations.rkt" "~/Desktop/JonRoby/grok/programmingLanguages/Unit2/week1/14_delayAndForce.rkt" "~/Desktop/test.js" "~/Desktop/JonRoby/primes.js" "~/Desktop/JonRoby/grok/programmingInHaskell/01_Introduction/ex2.hs" "~/Desktop/JonRoby/grok/nand2tetris/projects/03/a/PC.hdl" "~/Desktop/JonRoby/grok/nand2tetris/projects/03/a/Register.hdl" "~/Desktop/JonRoby/grok/nand2tetris/projects/03/b/RAM16K.hdl" "~/Desktop/JonRoby/grok/nand2tetris/projects/01/DMux4Way.hdl" "~/Desktop/JonRoby/grok/nand2tetris/projects/01/Mux4Way16.hdl" "~/Desktop/JonRoby/grok/nand2tetris/projects/03/b/RAM4K.hdl" "~/Desktop/JonRoby/grok/nand2tetris/projects/03/b/RAM512.hdl" "~/Desktop/JonRoby/grok/nand2tetris/projects/03/a/RAM64.hdl" "~/Desktop/JonRoby/grok/programmingLanguages/Unit2/week1/08_topLevelBindings.rkt" "~/Desktop/JonRoby/grok/programmingLanguages/Unit2/week1/07_localBindings.rkt" "~/Desktop/JonRoby/grok/programmingLanguages/Unit2/week1/06_cond.rkt" "~/Desktop/JonRoby/grok/programmingLanguages/Unit2/week1/04_parensMatter.rkt" "~/Desktop/JonRoby/grok/programmingLanguages/Unit2/week1/03_racketSyntax.rkt" "~/Desktop/JonRoby/grok/programmingLanguages/Unit2/week1/01_racketDefsFunctionsConditionals.rkt" "~/Desktop/JonRoby/grok/programmingLanguages/Unit2/week1/02_racketLists.rkt" "~/Desktop/JonRoby/grok/programmingInHaskell/09_theCountdownProblem/test.hs" "~/Desktop/JonRoby/grok/programmingInHaskell/09_theCountdownProblem/countdown.hs" "~/Desktop/testmagit/testrestclient.txt" "~/.emacs.d/org/emacs.org" "~/.emacs.d/org/first.org" "~/.emacs.d/org/emacs.org~" "~/.emacs.d/org/life.org" "~/.emacs.d/org/first.org~" "~/.oracle_jre_usage/7071805d7dc1768.timestamp" "~/.emacs.d/org/fandor.org" "~/Desktop/testmagit/nodeServer/#server.js#" "~/.emacs.d/projectile-bookmarks.eld" "~/Desktop/JonRoby/grok/programmingLanguages/Unit2/week1/11_mconsForMutablePairs.rkt" "~/Desktop/Fandor/noir/.babelrc" "~/Desktop/Fandor/noir/bin/sync-assets.js" "~/Desktop/testmagit/nodeServer/server.js" "~/Desktop/JonRoby/grok/programmingLanguages/Unit1/week1/test.sml" "~/Desktop/JonRoby/grok/programmingLanguages/Unit1/week1/week1.sml" "~/Desktop/noir/src/server/graphql/types/movie-type.js" "~/Desktop/noir/src/server/graphql/schema.js" "~/Desktop/noir/src/components/AwardsShowsScreen/AwardsShowsContent/AwardsShowsContent.jsx" "~/Desktop/testmagit/test.js" "~/Desktop/testing/package.json" "~/Desktop/JonRoby/grok/ethereumBasics/inbox/compile.js" "~/Desktop/JonRoby/yo/README.md" "~/.emacs.d/.emacs.desktop"))
+(setq file-name-history '("~/Desktop/mod-cli/package.json" "~/Desktop/mod-cli/src/helpers/compose.ts" "~/Desktop/mod-cli/tsconfig.json" "~/.emacs.d/init.el" "~/Desktop/mod-cli/tslint.json" "~/Desktop/mod-cli/src/helpers/importCompose.ts" "TAGS" "~/Desktop/mod-cli/src/helpers/__tests__/compose.js" "~/.emacs.d/init.el" "~/Desktop/mod-cli/tsconfig.js" "~/Desktop/mod-cli/src/helpers/__tests__/readFile.js" "~/Desktop/mod-cli/src/helpers/conditionalRequire.js" "~/Desktop/mod-cli/src/helpers/__tests__/conditionalRequire.js" "~/.emacs.d/init.el" "~/.emacs.d/init.el" "~/Desktop/mod-cli/jest.config.js" "~/Desktop/mod-cli/src/helpers/compose.js" "~/Desktop/mod-cli/.flowconfig" "~/Desktop/mod-cli/src/helpers/readFile.js" "~/Desktop/mod-cli/.DS_Store" "~/Desktop/mod-cli/index.js" "~/.emacs.d/.emacs.desktop" "~/Desktop/mod-cli/src/helpers/__tests__/writeToFile.js" "~/Desktop/mod-cli/__mocks__/fs.js" "~/Desktop/mod-cli/__mocks__/require.js" "~/Desktop/mod-cli/coverage/coverage-final.json" "~/Desktop/mod-cli/src/index.js" "~/.emacs.d/init.el" "~/Desktop/mod-cli/src/helpers/writeToFile.js" "~/Desktop/mod-cli/src/helpers/index.js" "~/Desktop/mod-cli/src/helpers/__mocks__/fs.js" "~/Desktop/mod-cli/src/helpers/__tests__/testFile.js" "~/.emacs.d/init.el" "~/Desktop/mod-cli/src/__tests__/index.js" "~/Desktop/mod-cli/helpers/conditionalRequire.js" "~/Desktop/mod-cli/helpers/readFile.js" "~/Desktop/gen/mod-cli-nextjs-example-plugin/config.js" "~/Desktop/gen/mod-cli-nextjs-example-plugin/mods/index.js" "~/Desktop/gen/mod-cli-nextjs-example-plugin/index.js" "~/Desktop/fe/testing-workshop/other/whats-a-mock/jest" "~/Desktop/mod-cli/LICENSE" "~/Desktop/mod-cli/.gitignore" "~/Desktop/gen/mod-cli/package.json" "~/Desktop/gen/mod-cli/package-lock.json" "~/Desktop/gen/mod-cli/index.js" "~/Desktop/gen/mod-cli/helpers/writeToFile.js" "~/Desktop/gen/mod-cli/helpers/readFile.js" "~/Desktop/gen/mod-cli/helpers/index.js" "~/Desktop/gen/mod-cli/helpers/compose.js" "~/Desktop/gen/mod-cli/README.md" "~/Desktop/gen/mod-cli/.eslintrc.json" "~/Desktop/gen/mod-cli/.eslintrc" "~/Desktop/gen/mod-cli/#.eslintrc#" "~/Desktop/gen/mod-cli/#index.js#" "~/.bash_profile" "~/.bashrc" "~/.emacs.d/init.el" "~/Desktop/JonRoby/grok/programmingLanguages/Unit2/week1/hw4test.rkt" "~/Desktop/JonRoby/grok/programmingLanguages/Unit2/week1/hw1.rkt" "~/Desktop/JonRoby/grok/programmingLanguages/Unit2/week1/12_delayedEvaluation.rkt" "~/Desktop/JonRoby/grok/programmingLanguages/Unit2/week1/13_avoidUnnecessaryComputations.rkt" "~/Desktop/JonRoby/grok/programmingLanguages/Unit2/week1/14_delayAndForce.rkt" "~/Desktop/test.js" "~/Desktop/JonRoby/primes.js" "~/Desktop/JonRoby/grok/programmingInHaskell/01_Introduction/ex2.hs" "~/Desktop/JonRoby/grok/nand2tetris/projects/03/a/PC.hdl" "~/Desktop/JonRoby/grok/nand2tetris/projects/03/a/Register.hdl" "~/Desktop/JonRoby/grok/nand2tetris/projects/03/b/RAM16K.hdl" "~/Desktop/JonRoby/grok/nand2tetris/projects/01/DMux4Way.hdl" "~/Desktop/JonRoby/grok/nand2tetris/projects/01/Mux4Way16.hdl" "~/Desktop/JonRoby/grok/nand2tetris/projects/03/b/RAM4K.hdl" "~/Desktop/JonRoby/grok/nand2tetris/projects/03/b/RAM512.hdl" "~/Desktop/JonRoby/grok/nand2tetris/projects/03/a/RAM64.hdl" "~/Desktop/JonRoby/grok/programmingLanguages/Unit2/week1/08_topLevelBindings.rkt" "~/Desktop/JonRoby/grok/programmingLanguages/Unit2/week1/07_localBindings.rkt" "~/Desktop/JonRoby/grok/programmingLanguages/Unit2/week1/06_cond.rkt" "~/Desktop/JonRoby/grok/programmingLanguages/Unit2/week1/04_parensMatter.rkt" "~/Desktop/JonRoby/grok/programmingLanguages/Unit2/week1/03_racketSyntax.rkt" "~/Desktop/JonRoby/grok/programmingLanguages/Unit2/week1/01_racketDefsFunctionsConditionals.rkt" "~/Desktop/JonRoby/grok/programmingLanguages/Unit2/week1/02_racketLists.rkt" "~/Desktop/JonRoby/grok/programmingInHaskell/09_theCountdownProblem/test.hs" "~/Desktop/JonRoby/grok/programmingInHaskell/09_theCountdownProblem/countdown.hs" "~/Desktop/testmagit/testrestclient.txt" "~/.emacs.d/org/emacs.org" "~/.emacs.d/org/first.org" "~/.emacs.d/org/emacs.org~" "~/.emacs.d/org/life.org" "~/.emacs.d/org/first.org~" "~/.oracle_jre_usage/7071805d7dc1768.timestamp" "~/.emacs.d/org/fandor.org" "~/Desktop/testmagit/nodeServer/#server.js#" "~/.emacs.d/projectile-bookmarks.eld" "~/Desktop/JonRoby/grok/programmingLanguages/Unit2/week1/11_mconsForMutablePairs.rkt" "~/Desktop/Fandor/noir/.babelrc" "~/Desktop/Fandor/noir/bin/sync-assets.js" "~/Desktop/testmagit/nodeServer/server.js" "~/Desktop/JonRoby/grok/programmingLanguages/Unit1/week1/test.sml" "~/Desktop/JonRoby/grok/programmingLanguages/Unit1/week1/week1.sml" "~/Desktop/noir/src/server/graphql/types/movie-type.js" "~/Desktop/noir/src/server/graphql/schema.js"))
 
 ;; Buffer section -- buffers listed in same order as in buffer list:
-(desktop-create-buffer 208
-  "/Users/JonRoby/.bash_profile"
-  ".bash_profile"
-  'sh-mode
-  '(anzu-mode drag-stuff-mode company-mode projectile-mode linum-mode)
-  75
-  '(4083 nil)
-  nil
-  nil
-  '((buffer-display-time 23511 62404 218451 0) (buffer-file-coding-system . utf-8-unix))
-  '((mark-ring (3963 2356 1 4082 1560 556))))
-
-(desktop-create-buffer 208
-  "/Users/JonRoby/.bashrc"
-  ".bashrc"
-  'sh-mode
-  '(anzu-mode drag-stuff-mode company-mode projectile-mode)
-  1
-  '(1 nil)
-  nil
-  nil
-  '((buffer-display-time 23511 62331 234038 0) (buffer-file-coding-system . utf-8-unix))
-  '((mark-ring (1))))
-
 (desktop-create-buffer 208
   "/Users/JonRoby/.emacs.d/init.el"
   "init.el"
   'emacs-lisp-mode
-  '(eldoc-mode anzu-mode drag-stuff-mode company-mode auto-revert-mode magit-file-mode projectile-mode)
-  9970
-  '(4434 nil)
+  '(eldoc-mode override-global-mode yas-minor-mode company-mode anzu-mode drag-stuff-mode auto-revert-mode magit-file-mode projectile-mode flycheck-mode)
+  13605
+  '(13837 nil)
   nil
   nil
-  '((buffer-display-time 23511 62275 431880 0) (buffer-file-coding-system . utf-8-unix))
-  '((mark-ring (12200 1 nil))))
+  '((buffer-display-time 23543 7867 44208 0) (buffer-file-coding-system . utf-8-unix))
+  '((mark-ring (13605 13486 13967 14013 13937 13919 13838 14346 14932 1 13911))))
 
 (desktop-create-buffer 208
-  "/Users/JonRoby/Desktop/JonRoby/grok/programmingLanguages/Unit2/week1/hw1.rkt"
-  "hw1.rkt"
-  'racket-mode
-  '(anzu-mode drag-stuff-mode company-mode magit-file-mode projectile-mode hs-minor-mode)
-  1321
-  '(1142 nil)
+  "/Users/JonRoby/Desktop/mod-cli/src/helpers/compose.ts"
+  "compose.ts"
+  'typescript-mode
+  '(eldoc-mode override-global-mode yas-minor-mode company-mode anzu-mode drag-stuff-mode magit-file-mode projectile-mode flycheck-mode tide-mode)
+  168
+  '(166 nil)
   nil
   nil
-  '((indent-tabs-mode) (buffer-display-time 23511 60974 440965 0) (buffer-file-coding-system . utf-8-dos))
-  '((mark-ring (1155 1173 1034 968 864 770 718 967 836 835 1009 769 768 607 810 1392))))
+  '((buffer-display-time 23543 7867 43630 0) (buffer-file-coding-system . undecided-unix))
+  '((mark-ring (213 1 164 147 193))))
 
 (desktop-create-buffer 208
-  "/Users/JonRoby/Desktop/JonRoby/grok/programmingLanguages/Unit2/week1/hw4test.rkt"
-  "hw4test.rkt"
-  'racket-mode
-  '(anzu-mode drag-stuff-mode company-mode magit-file-mode projectile-mode hs-minor-mode)
-  1536
-  '(1174 nil)
-  nil
-  nil
-  '((indent-tabs-mode) (buffer-display-time 23510 21718 760470 655000) (buffer-file-coding-system . utf-8-unix))
-  '((mark-ring (1083 1045 723 761))))
-
-(desktop-create-buffer 208
-  "/usr/local/Cellar/minimal-racket/7.0/share/racket/collects/racket/repl.rkt"
-  "repl.rkt"
-  'racket-mode
-  '(anzu-mode drag-stuff-mode company-mode projectile-mode hs-minor-mode)
-  402
-  '(nil nil)
-  nil
-  nil
-  '((indent-tabs-mode) (buffer-display-time 23510 21234 453773 655000) (buffer-file-coding-system . utf-8-unix))
-  '((mark-ring nil)))
-
-(desktop-create-buffer 208
-  "/Users/JonRoby/Desktop/JonRoby/grok/programmingLanguages/Unit2/week1/12_delayedEvaluation.rkt"
-  "12_delayedEvaluation.rkt"
-  'racket-mode
-  '(anzu-mode drag-stuff-mode company-mode magit-file-mode projectile-mode hs-minor-mode)
-  559
-  '(nil nil)
-  nil
-  nil
-  '((indent-tabs-mode) (buffer-display-time 23510 14850 751821 905000) (buffer-file-coding-system . utf-8-unix))
-  '((mark-ring nil)))
-
-(desktop-create-buffer 208
-  "/Users/JonRoby/Desktop/JonRoby/grok/programmingLanguages/Unit2/week1/13_avoidUnnecessaryComputations.rkt"
-  "13_avoidUnnecessaryComputations.rkt"
-  'racket-mode
-  '(anzu-mode drag-stuff-mode company-mode magit-file-mode projectile-mode hs-minor-mode)
-  1
-  '(nil nil)
-  nil
-  nil
-  '((indent-tabs-mode) (buffer-display-time 23510 14809 203372 905000) (buffer-file-coding-system . utf-8-unix))
-  '((mark-ring nil)))
-
-(desktop-create-buffer 208
-  "/Users/JonRoby/Desktop/JonRoby/grok/programmingLanguages/Unit2/week1/14_delayAndForce.rkt"
-  "14_delayAndForce.rkt"
-  'racket-mode
-  '(anzu-mode drag-stuff-mode company-mode magit-file-mode projectile-mode hs-minor-mode)
-  1
-  '(nil nil)
-  nil
-  nil
-  '((indent-tabs-mode) (buffer-display-time 23510 14806 917418 905000) (buffer-file-coding-system . utf-8-unix))
-  '((mark-ring nil)))
-
-(desktop-create-buffer 208
-  "/Users/JonRoby/Desktop/test.js"
-  "test.js"
+  "/Users/JonRoby/Desktop/mod-cli/package.json"
+  "package.json"
   'js-mode
-  '(anzu-mode drag-stuff-mode company-mode projectile-mode)
-  179
-  '(124 nil)
-  nil
-  nil
-  '((buffer-display-time 23510 11468 567301 905000) (buffer-file-coding-system . undecided-unix))
-  '((mark-ring (1 151 179))))
-
-(desktop-create-buffer 208
-  "/Users/JonRoby/Desktop/primes.hs"
-  "primes.hs"
-  'haskell-mode
-  '(eldoc-mode anzu-mode drag-stuff-mode company-mode projectile-mode)
-  42
-  '(27 nil)
-  nil
-  nil
-  '((tab-width . 8) (indent-tabs-mode) (buffer-display-time 23510 10718 448873 905000) (buffer-file-coding-system . utf-8-unix))
-  '((mark-ring (75 93 93 93))))
-
-(desktop-create-buffer 208
-  "/Users/JonRoby/Desktop/JonRoby/primes.js"
-  "primes.js"
-  'js-mode
-  '(anzu-mode drag-stuff-mode company-mode projectile-mode)
-  1
-  '(nil nil)
-  nil
-  nil
-  '((buffer-display-time 23506 34628 576573 905000) (buffer-file-coding-system . undecided-unix))
-  '((mark-ring nil)))
-
-(desktop-create-buffer 208
-  "/Users/JonRoby/Desktop/JonRoby/grok/programmingInHaskell/05_listComprehensions/notes.txt"
-  "notes.txt"
-  'text-mode
-  '(anzu-mode drag-stuff-mode company-mode auto-revert-mode magit-file-mode projectile-mode)
-  170
-  '(nil nil)
-  nil
-  nil
-  '((buffer-display-time 23506 34166 20810 905000) (buffer-file-coding-system . undecided-unix))
-  '((mark-ring nil)))
-
-(desktop-create-buffer 208
-  "/Users/JonRoby/Desktop/JonRoby/grok/programmingInHaskell/01_Introduction/ex2.hs"
-  "ex2.hs"
-  'haskell-mode
-  '(eldoc-mode anzu-mode drag-stuff-mode company-mode auto-revert-mode magit-file-mode projectile-mode)
-  1
-  '(nil nil)
-  nil
-  nil
-  '((tab-width . 8) (indent-tabs-mode) (buffer-display-time 23506 34050 214359 905000) (buffer-file-coding-system . undecided-unix))
-  '((mark-ring nil)))
-
-(desktop-create-buffer 208
-  "/Users/JonRoby/Desktop/JonRoby/grok/nand2tetris/projects/03/a/PC.hdl"
-  "PC.hdl"
-  'fundamental-mode
-  '(anzu-mode drag-stuff-mode company-mode auto-revert-mode magit-file-mode projectile-mode)
-  529
-  '(529 nil)
-  nil
-  nil
-  '((buffer-display-time 23506 34044 148246 905000) (buffer-file-coding-system . undecided-dos))
-  '((mark-ring nil)))
-
-(desktop-create-buffer 208
-  "/Users/JonRoby/Desktop/JonRoby/grok/nand2tetris/projects/03/a/Register.hdl"
-  "Register.hdl"
-  'fundamental-mode
-  '(anzu-mode drag-stuff-mode company-mode auto-revert-mode magit-file-mode projectile-mode)
-  1
-  '(nil nil)
-  nil
-  nil
-  '((buffer-display-time 23506 12088 69223 905000) (buffer-file-coding-system . undecided-dos))
-  '((mark-ring nil)))
-
-(desktop-create-buffer 208
-  "/Users/JonRoby/Desktop/JonRoby/grok/nand2tetris/projects/03/b/RAM16K.hdl"
-  "RAM16K.hdl"
-  'fundamental-mode
-  '(anzu-mode drag-stuff-mode company-mode auto-revert-mode magit-file-mode projectile-mode)
-  622
-  '(621 nil)
-  nil
-  nil
-  '((buffer-display-time 23506 12066 551308 905000) (buffer-file-coding-system . undecided-dos))
-  '((mark-ring (553 862 934 589 583 858 913 610 654 852 949 549))))
-
-(desktop-create-buffer 208
-  "/Users/JonRoby/Desktop/JonRoby/grok/nand2tetris/projects/01/DMux4Way.hdl"
-  "DMux4Way.hdl"
-  'fundamental-mode
-  '(anzu-mode drag-stuff-mode company-mode auto-revert-mode magit-file-mode projectile-mode)
-  400
-  '(392 nil)
-  nil
-  nil
-  '((buffer-display-time 23506 11977 440353 905000) (buffer-file-coding-system . undecided-dos))
-  '((mark-ring nil)))
-
-(desktop-create-buffer 208
-  "/Users/JonRoby/Desktop/JonRoby/grok/nand2tetris/projects/01/Mux4Way16.hdl"
-  "Mux4Way16.hdl"
-  'fundamental-mode
-  '(anzu-mode drag-stuff-mode company-mode auto-revert-mode magit-file-mode projectile-mode)
-  314
-  '(323 nil)
-  nil
-  nil
-  '((buffer-display-time 23506 11947 818580 905000) (buffer-file-coding-system . undecided-dos))
-  '((mark-ring (314))))
-
-(desktop-create-buffer 208
-  "/Users/JonRoby/Desktop/JonRoby/grok/nand2tetris/tools/builtInChips/DMux4Way.hdl"
-  "DMux4Way.hdl"
-  'fundamental-mode
-  '(anzu-mode drag-stuff-mode company-mode auto-revert-mode magit-file-mode projectile-mode)
-  386
-  '(nil nil)
-  nil
-  nil
-  '((buffer-display-time 23506 11472 572194 486000) (buffer-file-coding-system . undecided-unix))
-  '((mark-ring nil)))
-
-(desktop-create-buffer 208
-  "/Users/JonRoby/Desktop/JonRoby/grok/nand2tetris/projects/03/b/RAM4K.hdl"
-  "RAM4K.hdl"
-  'fundamental-mode
-  '(anzu-mode drag-stuff-mode company-mode auto-revert-mode magit-file-mode projectile-mode)
-  1244
-  '(546 nil)
-  nil
-  nil
-  '((buffer-display-time 23506 11345 307676 486000) (buffer-file-coding-system . undecided-dos))
-  '((mark-ring (580 671 639 633 1244 550 1))))
-
-(desktop-create-buffer 208
-  "/Users/JonRoby/Desktop/JonRoby/grok/nand2tetris/projects/03/b/RAM512.hdl"
-  "RAM512.hdl"
-  'fundamental-mode
-  '(anzu-mode drag-stuff-mode company-mode auto-revert-mode magit-file-mode projectile-mode)
-  1271
-  '(587 nil)
-  nil
-  nil
-  '((buffer-display-time 23506 11013 472459 486000) (buffer-file-coding-system . undecided-dos))
-  '((mark-ring (1271 621 617 706 506 571 669 1))))
-
-(desktop-create-buffer 208
-  "/Users/JonRoby/Desktop/JonRoby/grok/nand2tetris/projects/03/a/RAM64.hdl"
-  "RAM64.hdl"
-  'fundamental-mode
-  '(anzu-mode drag-stuff-mode company-mode auto-revert-mode magit-file-mode projectile-mode)
-  1226
-  '(483 nil)
-  nil
-  nil
-  '((buffer-display-time 23506 10785 982188 486000) (buffer-file-coding-system . undecided-dos))
-  '((mark-ring nil)))
-
-(desktop-create-buffer 208
-  "/Users/JonRoby/Desktop/JonRoby/grok/programmingLanguages/Unit2/week1/08_topLevelBindings.rkt"
-  "08_topLevelBindings.rkt"
-  'racket-mode
-  '(anzu-mode drag-stuff-mode company-mode magit-file-mode projectile-mode hs-minor-mode)
-  1
-  '(nil nil)
-  nil
-  nil
-  '((indent-tabs-mode) (buffer-display-time 23505 63186 472646 486000) (buffer-file-coding-system . utf-8-unix))
-  '((mark-ring nil)))
-
-(desktop-create-buffer 208
-  "/Users/JonRoby/Desktop/JonRoby/grok/programmingLanguages/Unit2/week1/07_localBindings.rkt"
-  "07_localBindings.rkt"
-  'racket-mode
-  '(anzu-mode drag-stuff-mode company-mode magit-file-mode projectile-mode hs-minor-mode)
-  387
-  '(387 nil)
-  nil
-  nil
-  '((indent-tabs-mode) (buffer-display-time 23504 62686 807011 486000) (buffer-file-coding-system . utf-8-unix))
-  '((mark-ring nil)))
-
-(desktop-create-buffer 208
-  "/Users/JonRoby/Desktop/JonRoby/grok/programmingLanguages/Unit2/week1/06_cond.rkt"
-  "06_cond.rkt"
-  'racket-mode
-  '(anzu-mode drag-stuff-mode company-mode magit-file-mode projectile-mode hs-minor-mode)
-  1
-  '(nil nil)
-  nil
-  nil
-  '((indent-tabs-mode) (buffer-display-time 23504 61335 264431 486000) (buffer-file-coding-system . utf-8-unix))
-  '((mark-ring nil)))
-
-(desktop-create-buffer 208
-  "/Users/JonRoby/Desktop/JonRoby/grok/programmingLanguages/Unit2/week1/04_parensMatter.rkt"
-  "04_parensMatter.rkt"
-  'racket-mode
-  '(anzu-mode drag-stuff-mode company-mode magit-file-mode projectile-mode hs-minor-mode)
-  1
-  '(nil nil)
-  nil
-  nil
-  '((indent-tabs-mode) (buffer-display-time 23504 61321 691246 486000) (buffer-file-coding-system . utf-8-unix))
-  '((mark-ring nil)))
-
-(desktop-create-buffer 208
-  "/Users/JonRoby/Desktop/JonRoby/grok/programmingLanguages/Unit2/week1/03_racketSyntax.rkt"
-  "03_racketSyntax.rkt"
-  'racket-mode
-  '(anzu-mode drag-stuff-mode company-mode magit-file-mode projectile-mode hs-minor-mode)
-  725
-  '(544 nil)
-  nil
-  nil
-  '((indent-tabs-mode) (buffer-display-time 23504 60874 113792 486000) (buffer-file-coding-system . utf-8-unix))
-  '((mark-ring nil)))
-
-(desktop-create-buffer 208
-  "/Users/JonRoby/Desktop/JonRoby/grok/programmingLanguages/Unit2/week1/02_racketLists.rkt"
-  "02_racketLists.rkt"
-  'racket-mode
-  '(anzu-mode drag-stuff-mode company-mode auto-revert-mode magit-file-mode projectile-mode hs-minor-mode)
-  587
-  '(587 nil)
-  nil
-  nil
-  '((indent-tabs-mode) (buffer-display-time 23504 60360 148238 486000) (buffer-file-coding-system . utf-8-unix))
-  '((mark-ring (577 512 530 409 406 381 380 1 374 303 143))))
-
-(desktop-create-buffer 208
-  "/Users/JonRoby/Desktop/JonRoby/grok/programmingLanguages/Unit2/week1/01_racketDefsFunctionsConditionals.rkt"
-  "01_racketDefsFunctionsConditionals.rkt"
-  'racket-mode
-  '(anzu-mode drag-stuff-mode company-mode auto-revert-mode magit-file-mode projectile-mode hs-minor-mode)
-  13
+  '(override-global-mode yas-minor-mode company-mode anzu-mode drag-stuff-mode auto-revert-mode magit-file-mode projectile-mode flycheck-mode)
+  734
   '(1 nil)
   nil
   nil
-  '((indent-tabs-mode) (buffer-display-time 23504 59476 55050 486000) (buffer-file-coding-system . utf-8-unix))
-  '((mark-ring (13 1))))
-
-(desktop-create-buffer 208
-  "/Users/JonRoby/Desktop/JonRoby/grok/programmingInHaskell/09_theCountdownProblem/countdown.hs"
-  "countdown.hs"
-  'haskell-mode
-  '(eldoc-mode anzu-mode drag-stuff-mode company-mode magit-file-mode projectile-mode)
-  1304
-  '(1190 nil)
-  nil
-  nil
-  '((tab-width . 8) (indent-tabs-mode) (buffer-display-time 23504 58647 942898 486000) (buffer-file-coding-system . undecided-unix))
-  '((mark-ring (1309 1034 999 1015 311))))
-
-(desktop-create-buffer 208
-  "/Users/JonRoby/Desktop/JonRoby/grok/programmingInHaskell/09_theCountdownProblem/test.hs"
-  "test.hs"
-  'haskell-mode
-  '(eldoc-mode anzu-mode drag-stuff-mode company-mode magit-file-mode projectile-mode)
-  16
-  '(nil nil)
-  nil
-  nil
-  '((tab-width . 8) (indent-tabs-mode) (buffer-display-time 23504 57945 62994 486000) (buffer-file-coding-system . utf-8-unix))
+  '((buffer-display-time 23543 7816 401361 0) (buffer-file-coding-system . undecided-unix))
   '((mark-ring nil)))
 
 (desktop-create-buffer 208
-  "/Users/JonRoby/Desktop/testmagit/testrestclient.txt"
-  "testrestclient.txt"
-  'restclient-mode
-  '(anzu-mode drag-stuff-mode company-mode magit-file-mode projectile-mode)
-  103
-  '(52 nil)
+  "/Users/JonRoby/Desktop/mod-cli/tsconfig.js"
+  "tsconfig.js"
+  'js2-mode
+  '(override-global-mode yas-minor-mode company-mode anzu-mode drag-stuff-mode magit-file-mode projectile-mode flycheck-mode tide-mode)
+  157
+  '(1 nil)
   nil
   nil
-  '((buffer-display-time 23504 57340 45249 486000) (buffer-file-coding-system . utf-8-unix))
-  '((mark-ring (1 151 103 153 5 153))))
+  '((buffer-display-time 23543 7735 559525 0) (buffer-file-coding-system . undecided-unix))
+  '((mark-ring (26 30))))
 
 (desktop-create-buffer 208
-  "/Users/JonRoby/.emacs.d/org/first.org"
-  "first.org"
-  'org-mode
-  '(anzu-mode drag-stuff-mode company-mode auto-revert-mode magit-file-mode projectile-mode)
+  "/Users/JonRoby/Desktop/mod-cli/tsconfig.json"
+  "tsconfig.json"
+  'js-mode
+  '(override-global-mode yas-minor-mode company-mode anzu-mode drag-stuff-mode magit-file-mode projectile-mode flycheck-mode)
+  70
+  '(76 nil)
+  nil
+  nil
+  '((buffer-display-time 23543 7608 356256 82000) (buffer-file-coding-system . utf-8-unix))
+  '((mark-ring (171 151 1))))
+
+(desktop-create-buffer 208
+  "/Users/JonRoby/Desktop/mod-cli/src/helpers/importCompose.ts"
+  "importCompose.ts"
+  'typescript-mode
+  '(eldoc-mode override-global-mode yas-minor-mode company-mode anzu-mode drag-stuff-mode magit-file-mode projectile-mode flycheck-mode tide-mode)
+  66
+  '(43 nil)
+  nil
+  nil
+  '((buffer-display-time 23543 7277 835506 81000) (buffer-file-coding-system . utf-8-unix))
+  '((mark-ring (43 43 43 43 43 43 1))))
+
+(desktop-create-buffer 208
+  "/Users/JonRoby/Desktop/mod-cli/tslint.json"
+  "tslint.json"
+  'js-mode
+  '(override-global-mode yas-minor-mode company-mode anzu-mode drag-stuff-mode magit-file-mode projectile-mode flycheck-mode)
   1
   '(nil nil)
   nil
   nil
-  '((buffer-display-time 23511 60974 440942 0) (buffer-file-coding-system . undecided-unix) (truncate-lines . t))
+  '((buffer-display-time 23543 7051 434352 81000) (buffer-file-coding-system . undecided-unix))
+  '((mark-ring nil)))
+
+(desktop-create-buffer 208
+  "/Users/JonRoby/Desktop/mod-cli/src/helpers/__tests__/compose.js"
+  "compose.js"
+  'js2-mode
+  '(override-global-mode yas-minor-mode company-mode anzu-mode drag-stuff-mode magit-file-mode projectile-mode flycheck-mode tide-mode)
+  7
+  '(1 nil)
+  nil
+  nil
+  '((buffer-display-time 23543 5952 351419 589000) (buffer-file-coding-system . undecided-unix))
   '((mark-ring nil)))
 
