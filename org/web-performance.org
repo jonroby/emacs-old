@@ -1,0 +1,260 @@
+https://frontendmasters.com/courses/web-performance/
+
+** Intro Network Load performance (Get it to user)
+
+   Parsing Performance
+   Rendering Performance
+
+   RAIL
+   Response -
+   Animation - 
+   Idle - Use idle time to proactively schedule work
+   Load - Satisfy the "response" goals during full load
+
+   Refresh 60 times a second (16 ms)
+
+   Compare Gmail (Slower acceptable) with NYTimes (Needs to be fast)
+
+   Measure.
+   Do people use this page?
+
+   Tiers of Advice:
+   - Definitely do this
+   - Maybe do this
+   - Only if you need to, do this
+
+   Golden Rule of Performance
+   Doing less stuff takes less time :)
+   If you can do it later, do it later.
+
+** JavaScript Performance
+
+   JavaScript is compiled. Most browsers use a JIT compilation.
+   It gets compiled moments before execution.
+   Happens on user's computer.
+   They pay the cost.
+
+   V8
+   Nitro
+   SpiderMonkey
+   Chakra
+
+   Cloud -> Sends JS -> Parser -> AST ->
+   From there byte code is generated, but then some code that can be optimized goes to
+   another optimizing compiler and then is added to bytecode.
+
+   Speculative optimizing
+   Hidden classes for dynamic lookups
+   Function inlining
+
+*** Parsing can be slow
+    Eager parse, lazy parse. Can be 1mb/s on mobile.
+    
+*** Optimizing compiler
+    performance.mark('startOrWhateverIWantToCallThis');
+    performance.mark('endOrWhatever');
+    
+
+    node --trace-opt benchmark.js
+    node --trace-opt benchmark.js | grep add (this is to remove node work)
+
+    monomorphic - can really optimize this because objects, types are nearly identical
+    polymorphic - can somewhat optimize, types are mostly identical
+    megamorphic - can't optimize, types differ widely
+
+    1. Use functions similarly (no adding strings and numbers)
+    2. Keep object shape the same
+
+    TLDR
+    Polymorphic functions, different object types, can decrease your performance. Typesystem can * 
+** Rendering Performance
+   HTML is parsed into DOM
+   Representation of web page. There is also a link for styling.
+   CSSOM or CSS Object Model. Body, h1, li
+   Rendering tree only includes elements that display on page.
+   One-to-one mapping with the visible objects on the page
+     So, not hidden object.
+     Yes, to pseudo elements(e.g., :after, :before)
+   
+   There might be multiple rules that apply to a single element. We
+   need to figure that out here.
+
+   The more complicated the selector, the longer it takes. Class names
+   are simple.
+   
+   Reduce the amount of unused CSS that you're shipping
+   The less styles you have, the less there is to check.
+   Reduce the number of styles that effect a given element.
+
+   Paint: We know what things should look like and where they should go.
+   Draw some pixels to the screen.
+
+   JS can change the class on an object, change the inline styles, add
+   or remove elements.
+
+   Render Pipeline
+   Javascript -> Style -> Layout -> Paint -> Composite (send off to GPU)
+
+   Reflows are very expensive in terms of performance and is one of the
+   main causes of slow DOM scripts, especially on devices with low processing
+   power, such as phones. In many cases, they are equivalent to laying out
+   the entire page again.
+
+   Reflow is a blocking operation. Everything else stops. CPU intensive.
+   It will be definitely noticeable by the user if it happens often 
+   (in a loop).
+
+   A reflow of an element causes a reflow of its parents and children.
+   A reflow is followed by a repaint.
+
+   How can you avoid reflows?
+   - Change classes at the lowest levels of the DOM tree.
+   - Avoid repeatedly modifying inline styles.
+   - Trade smoothness for speed if you're doing an animation in JS.
+   - Avoid table layouts.
+   - Batch DOM manipulation. (React, other frameworks, does this for you)
+   - Debounce window resize events.
+
+   Layout thrashing
+   So this can happen in loops where you read then write in a loop.
+   It is better to do all of your reads, then all of your widths.
+   This is because everytime you write, it needs to check for updated info
+   when doing a read.
+
+   Remember you're looking for paints to happen in under 
+
+*** Threads
+    
+    UI Thread. Chrome itself. The tab bar, etc.
+
+    The Renderer thread
+    Renderer thread. Main thread. This is where all JS, parsing HTML and CSS,
+    style calculation, layout and painting happens. There are 1 per tab.
+
+    Compositor thread
+    Draws bitmaps to the screen via the GPU.
+
+    - When we paint we create bitmaps for the elements, put them onto layers,
+    and prepares shaders for animations if necessary.
+    - After painting the bitmaps are shared with a thread on the GPU to do
+    the actual compositing.
+    - The GPU process works with OpenGL to make magic happen on your screen.
+
+    The main thread is CPU intensive. The compositor thread is GPU intensive.
+
+    The Compositor thread is really good at
+    - Not drawing the original bitmap, but at drawing the same bitmap over
+      and over in different places.
+    - Scaling and rotating bitmaps.
+    - Making bitmaps transparent.
+    - Applying filters.
+    - Mining bitcoin.
+
+    // promotes an object to its own layer
+    .sidebar {
+      will-change: transform
+    }
+
+    Though normally it's done in JS. Can often do it onhover, or mouseover.
+    If the user will interact with it constantly add it to CSS. Otherwise,
+    do it with JS.
+
+    
+    
+    
+
+
+    
+
+   
+** Load Performance
+   Latency and Bandwidth
+
+   Quote: Networks, CPUS, and disks all hate you. On the client,
+   you pay for what you send in ways you can't easily see.
+
+   Internet is a bunch of tubes.
+   Bandwidth: how much stuff can you fit through the tube per second.
+   Latency: how long it takes to get to other end of the tube.
+
+   TCP's job is necessarily to get you things fast. It gets things to you
+   reliably.
+   - Packets are delivered in correct order.
+   - Packets are delivered without errors.
+   - Client acknowledges each packet.
+   - Unreliable connections are handle well.
+   - Will not overload the network.
+
+   TCP starts by sending a small amount of data and then starts sending
+   more and more as we find out that things are being successful.
+
+   The initial window size is 14kb. So if you can files under 14kb, then it
+   means you can get everything through in the first window.
+
+   Cache-Control response header
+   - no-store: browser gets a new version every time
+   - no-cache: store a copy, check to see if you have different version
+   - max-age: tell the browser, don't bother fetching until a long time.
+   - s-maxage: for CDN, tell browser to keep it forever, but not browser.
+
+   Three over-simplified possibilities.
+   Cache missing: no local copy of cache
+   Stale: do a conditional GET. The browser has a copy, but it's old and
+   no longer valid. Go get a new version.
+   Valid: We have a thing in cache and its good -- so, don't even bother
+   talking to the server.
+
+*** Service Workers
+    You have programmatic control over what gets cached and doesn't.
+    
+*** Lazy loading and Preloading (Codesplitting and Lazyloading)
+    React and Webpack 
+
+*** HTTP/2
+    - An upgrade to the http transpofr layer
+    - Fully multiplexed-send multiple requests in parallel
+    - Allows servers to proactively push responses into client
+
+    HTTP/1 Problems
+    - Websites are growing: more images, more Javascript
+    - Sure bandwidth has gotten better, but roundtrip hasn't.
+    - It takes just as long to ping a server now as it did 20 years ago.
+    - That's right. One file at a time per connection.
+    - No big deal. It's not like we are building websites that request
+      100 files to something...
+
+    How to get HTTP2?
+    Now.sh, Netlify, Cloudfare, Amazon Cloudfront
+
+** Build tools
+   Purify CSS, strips out CSS not being used.
+
+*** Paying the Babel tax
+    Maybe small for you to type, but compiled JS is far bigger.
+    
+*** What browsers do you users use?  
+    
+    - Target which browsers you want to support. So you may not need to
+    support certain browsers. 
+
+    - Strip prop types. React doesn't use it in production.
+
+    - Classes without state, or methods, you can transform to pure function.
+      Recall earlier, that sometimes using things in classes, can take
+      far longer, generate far more code.
+
+    - Turn babel/plugin-transform-react-inline-elements. JSX turns to a
+      function, so this will turn it into a big object and the object
+      is faster than calling a function.
+
+    - Prepack. Not ready but an interesting point: Do we do things at build
+      time or run time? What are the tradeoffs?
+
+** FINAL NOTE   
+   In react, build for production mode. Don't test performance on development
+   mode.
+
+   Server side rendering
+   Image performance
+   Web fonts
+

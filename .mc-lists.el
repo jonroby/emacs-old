@@ -4,8 +4,15 @@
 (setq mc/cmds-to-run-for-all
       '(
 	helm-show-kill-ring
+	indent-for-tab-command
+	kill-region
+	typescript-insert-and-autoconvert-to-template
+	typescript-insert-and-indent
 	))
 
 (setq mc/cmds-to-run-once
       '(
+	electric-pair-delete-pair
+	helm-M-x
+	helm-buffers-list
 	))

@@ -1,0 +1,22 @@
+* Publishing
+cd dist
+Note: This doesn't add beta to version. You'll still have to bump
+version afterward.
+
+npm publish --access public --dry-run
+npm publish --tag beta --access public
+
+Currently, issues with npm build, jest, being left in package.json
+So I'm manually deleting these. Need to figure out a better process.
+
+
+* Linking
+if you have package my-package you want to link globally, navigate to that directory:
+No need to add anything else:
+$ npm link
+
+Then if you want to use that package as a module, go to that directory
+And instead of npm installing, simply
+$ npm link my-package
+
+

@@ -1,0 +1,89 @@
+* Introduction
+
+** Details
+- Strongly typed query language and runtime for your data
+- Gives clients the power to describe exactly what data they want
+- Strongly typed (think typescript for your data)
+- Enables excellent developer tooling and experiences
+- Can sit in front of any existing API because its just a query language
+- Ecosystem is fantastic
+
+From howToGraphQL
+- Increased mobile usage creates need for efficient data loading.
+- Variety of different frontend frameworks and platforms on the client side.
+- Fast development speed and expectation for rapid feature development.
+
+GraphQL is not a DB technology. It is a query language for APIs.
+
+** GraphQL vs Rest
+
+- GraphQL only has one URL. It does not need a resource url + verb combo.
+- In REST, the shape and size of the data resource is determined by the server, with GraphQL its determined by the query (request).
+- In REST, you have to make multiple API calls to retrieve relational data, with GraphQL you can start with entry resource and traverse all the connections in one request.
+- In REST, the shape of the response is determined by whom ever created the server, in GraphQL the shape is determined by the query.
+- In REST, a single request will execute on the controller on the server, in GraphQL a request might execute MANY resolvers on the server.
+
+** Why a Schema?
+
+- DB Schema is for keeping data consistent when entering our DB
+- GraphQL schema is for defining what resources are available for querying, how they relate, and how you can query them.
+- Both schemas can be the same, or not. DB schema is a good starting point for your GraphQL schema.
+- GraphQL schema sists in front of your DB queries, it validates incoming request queries.
+
+Schema Definition Language (SDL) is the default way to do it.
+
+* Scalar and Object types
+
+Scalar are the built in primitives:
+
+String
+Int
+Float
+Boolean
+ID
+
+* Cheat Sheet
+https://raw.githubusercontent.com/sogko/graphql-shorthand-notation-cheat-sheet/master/graphql-shorthand-notation-cheat-sheet.png
+* Interfaces
+
+Some types are very similar with the exception of a few fields. You can use an interface as a base type and have other types implement that interface. Just like a language type system.
+
+interface Animal {
+  species: String!
+  location: String!
+}
+
+type Tiger implements Animal {
+  species: String!
+  location: String!
+  stripes: Int
+}
+
+In your resolver, since Animal is an abstract type, you'll need to
+
+Animal: {
+  __resolveType(animal) {
+    return animal.species // Assume you're receiving an object with species property
+  }
+}
+
+And when requesting:
+
+animals {
+  species
+  ... on Lion {
+    mainColor
+  }
+  ... on Tiger {
+    stripeCount
+  }
+}
+
+* Union
+
+Sometimes you want a query to return a possibility of more than just one type. Unions allow you to create a type that is composed of many types where any of them may be fulfulled
+
+Great for search queries.
+
+union SearchItem = Person | Place | Review
+

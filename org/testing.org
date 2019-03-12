@@ -1,0 +1,56 @@
+* Forms of testing 
+
+Static code analysis like Flow or Typescript
+
+Integration testing a route (mocking out API calls)
+
+E2E (Cypress) treat app as black box and verifying state of application
+
+What is a test?
+Test throws an error when something goes wrong.
+
+* React
+
+[[https://blog.kentcdodds.com/why-i-never-use-shallow-rendering-c08851a68bb7][Kent Dodd Article]]
+With shallow rendering (enzyme), I can refactor my component's
+implementation I can break my application and my tests say everything
+is still working. With shallow rendering, I can break my application
+and my tests say everything's still working.
+
+[[https://www.youtube.com/watch?v=_pnW-JjmyXE][Aaron Abramov]]
+
+Good test
+1 Runs fast
+2 Doesn't break often
+3 Easy to read understand
+4 Catches bugs
+5 Good coverage to effort ratio
+
+General principles
+1 Testing UI is extremely hard
+2 Mocking too much reduces test quality
+3 More isolation = less bugs caught
+
+* Snapshot
+
+
+* Redux
+Export your store as a function that returns the store.
+
+const renderComponent = () => render(
+  <Provider store={store()}>
+    <Products />
+  </Provider>
+)
+
+...
+
+test('render loading state followed by products', async () => {
+  axios.get.mockReturnValue(new Promise(resolve =>
+  resolve(products)));
+  ...
+});
+
+* Integration
+
+

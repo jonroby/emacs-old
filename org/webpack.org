@@ -1,0 +1,405 @@
+* Fundamentals
+
+** Why Webpack?
+
+There are only two ways to load JS in the browser. In a script tag, or script tag with src. But there are all sorts of issues with naming collisions.
+
+Originally there was IIFE's, but they aren't particularly performant.
+There is no dead code elimination and also you must load all of it.
+
+Then came along CommonJS
+
+Explosion of JS took over when this occurred.
+
+Problem
+No browser support.
+No live binding - Problems with circular references.
+Resolution algorithm for CommonJS is slow.
+
+AMD
+Too dynamic of lazy loading.
+Awkward syntax.
+
+ESM (Ecmascript modules)
+import { p } from m;
+
+Problems?
+ESM for Node?
+ESM for browser is very very very slow.
+
+Webpack is a module bundler. Let's you write any module format (mixed!) and compiles them for the browser. On top of that is supports static async bundling, so extra optimizations you can leverage. It now has a rich, vast, ecosystem. The most performant way to ship JS today.
+
+Three ways to use Webpack:
+1 Webpack config 
+2 Webpack CLI
+3 Node API
+
+Performance, Maintainability and Scalability
+
+** Webpack from scratch
+   
+   Webpack binary is installed in .bin
+
+   This will optimize speed over size.
+
+   The "debug" script will allow you to debug inside webpack itself.
+   "scripts": {
+     "webpack": "webpack",
+     "dev": "npm run webpack -- --mode development --watch",
+     "prod": "npm run webpack -- --mode production",
+     "debug": "node --inspect --debug-brk ./node_modules/webpack/bin/webpack.js",
+     "debugthis": "node --inspect --inspect-brk ./src/index.js"
+   },
+
+   The default settings are entry is src/index.js and output is dist/main.js
+
+   You can run dist just with node ./dist/main.js
+
+   The ids when you build ([0] ./src/file) are the same in the dist/main.js.
+
+** Core Concepts
+                bootstrap.js
+              app.component.ts
+      external.lib.js some.component.ts
+   extranl.lib.dep.js some.component.sass
+ external.lib.dep.css
+
+Webpack traces through imports and recursively look for other dependencies, until it has created a graph.
+
+Output tells Webpack WHERE and HOW to distribute bundles (compilations).
+
+*** Loaders and Rules
+Tells webpack how to modify files before its added to dependency graph. Loaders are also JS modules (functions) that takes the source file and returns it in a [modified] state.
+
+include:
+An array of regular expressions that instructs the compiler which folders/files to include. Will only search paths provided with the include.
+
+exclude:
+An array of regular expression that instructs the compiler which folders/files to ignore.
+
+The anatomy of a loader is just a function that takes a src and returns a new src. You can read them as going from right to left.
+
+["style", "css", "less"] // =>
+style(css(less()))
+
+*** Plugins
+
+They add additional functionality to Compilations (optimized bundled modules). More powerful with more acess to CompilerAPI. Does everything else you'd ever want to in Webpack.
+
+Objects (with an `apply` property)
+Allows you to hook into the entire compilation life cycle
+Webpack has a builtin plugins
+
+The compiler uses the plugin to emit events.
+
+webpack 3 
+function BellOnBundlerPlugin() {}
+
+BellOnBundlerPlugin.prototype.apply = function(compiler) {
+  ...
+  compiler.plugin('done', function(stats) {
+    ...
+  });
+
+  compiler.plugin('failed', function(err) {
+    ...
+  });
+}
+
+Fun fact: 80% of webpack is made up of its own plugin system.
+
+
+
+
+** Config
+   Config can take both a function and an object.
+
+   If you want the env, you can in package.json scripts:
+
+   package.json
+   "prod": "npm run webpack -- --env.mode production"
+   "dev": "npm run webpack -- --env.mode development --watch"
+
+   So now in config if you use a function, you can use env as an argument:
+
+   webpack.config.js
+   const webpack = require("webpack");
+   const HtmlWebpackPlugin = require("html-webpack-plugin");
+
+   module.exports = env => {
+     console.log("env ", env);
+     return {
+       output: {
+	 filename: "bundle.js"
+       },
+       // Process plugin is just there to see process as webpack loads
+       plugins: [new HtmlWebpackPlugin(), new webpack.ProgressPlugin()]
+     };
+   };
+
+   Building on that is a good base setup
+   (feature/04010-composing-configs-webpack-merge):
+
+   // webpack.config.js
+   const webpack = require("webpack");
+   const HtmlWebpackPlugin = require("html-webpack-plugin");
+   const webpackMerge = require("webpack-merge");
+
+   const modeConfig = env => require(`./build-utils/webpack.${env}`)(env);
+
+   module.exports = ({ mode, presets } = { mode: "production", presets: [] }) => {
+     return webpackMerge(
+       {
+	 mode,
+	 output: {
+	   filename: "bundle.js"
+	 },
+	 plugins: [new HtmlWebpackPlugin(), new webpack.ProgressPlugin()]
+       },
+       modeConfig(mode)
+     );
+   };
+
+   // webpack.production.js
+   module.exports = () => ({
+     output: {
+       filename: "[chunkhash].js"
+     }
+   });
+
+
+   
+** Using Plugins
+*** CSS  
+*** HMR  
+*** File Loader and Url loader
+*** Loading Images
+*** Presets
+
+feature/04013-adding-presets
+
+// loadPresets.js
+const webpackMerge = require("webpack-merge");
+
+const applyPresets = (env = {presets: []}) => {
+  const presets = env.presets || [];
+  /** @type {string[]} */
+  const mergedPresets = [].concat(...[presets]);
+  const mergedConfigs = mergedPresets.map(presetName =>
+    require(`./presets/webpack.${presetName}`)(env)
+  );
+
+  return webpackMerge({}, ...mergedConfigs);
+};
+
+module.exports = applyPresets;
+
+An example of a preset might be the bundle analyzer preset.
+npm i --save-dev webpack-bundle-analyzer
+
+// package.json
+"prod:analyze": "npm run prod -- --env.presets analyze"
+
+*** Compression
+*** Source Maps
+
+
+* Peformance
+
+** Intro
+
+Top 3 causes of web performance (not talking about scroll jank).
+
+1) Amount of JS for initial download (evaluate and execute).
+2) Amount of CSS for initial download.
+3) Amount of network requests on initial download. (distant third)
+
+Goals
+
+<= 200kb uncompressed Initial JS (total)
+<= 100kb uncompressed Initial CSS (total)
+
+HTTP <= 6 Initial Network calls
+HTTP/2 <= 20 Initial Network calls
+
+90% Code Coverage
+When you download initial experience, 90% of that code is actually used.
+
+To find this, go to
+- Chrome DevTools
+- Shift-Cmd-P
+- Coverage
+- Then reload
+
+What kind of load reduction will you see by reducing this? Mobile has even more reduction. Temperature of phone can increase load time.
+
+Code splitting is the SINGLE MOST IMPORTANT thing you can do to enable web performance. It is the process of splitting pieces of your code into async chunks (at build time).
+
+** Code Splitting
+*** Basics
+The future of web is mobile.
+The average mobile website takes 14 seconds to get interactive.
+Load less code => Interactive faster.
+
+Two types of code splitting: static and "dynamic".
+
+Nothing in webpack is dynamic, it's all at buildtime.
+Some people ask if I could ever do `import (someVar)` and the answer is no. That would be at runtime.
+
+Static code splitting
+- heavy JavaScript (e.g., three.js)
+- anything temporal (a modal, tooltip, dialog, below the fold)
+- routes
+
+**** Pseudocode Example
+import Listener from './listeners';
+
+const getModal = () => import('./src/modal');
+
+Listener.on('didSomethingToWarrantModalBeingCalled', () => {
+  getModal().then(module => {
+    const modalTarget = document.getElementById('Modal');
+    module.initModal(modalTarget);
+  })
+});
+
+
+**** Real Code Example
+import nav from "./nav";
+// import { footer } from "./footer";
+// CAN ALSO DO THIS: const getFooter = () => import("./footer");
+import makeButton from "./button";
+import { makeColorStyle } from "./button-styles";
+import makeImage from "./image";
+import imageUrl from "./webpack-logo.jpg";
+import css from "./footer.css";
+import buttonStyles from "./button.css";
+
+const image = makeImage(imageUrl);
+const button = makeButton("Yay! A Button!");
+button.style = makeColorStyle("cyan");
+
+document.body.appendChild(button);
+
+button.addEventListener("click", e => {
+  import("./footer").then(({ footer }) => {
+    document.body.appendChild(footer);
+  });
+});
+
+document.body.appendChild(image);
+
+How is this done?
+
+In the bundle you can see module, as well as chunk, hashes.
+
+The important function is __webpack__require.e
+
+This takes a JSONP fetch another file, and append script to the head.
+Since it could be an array, Promise.all is used.
+
+There is a single jsonpArray it's in the global scope, and this is where other chunks are registered.
+
+*** Questions
+
+You might ask if it will be requested multiple times? And the answer is no. It is cached, and webpack always checks the module cache, before making another request.
+
+*** React
+
+Use react-loadable.
+import Loadable from 'react-loadable';
+import Loading from './my-loading-component';
+
+const LoadableComponent = Loadable({
+  loader: () => import('./my-component'),
+  loading: Loading,
+});
+
+export default class App extends React.Component {
+  render() {
+    return <LoadableComponent />;
+  }
+}
+
+
+
+*** "Dynamic" Code Splitting
+
+const getTheme = (themeName) =>
+  import(`./src/themes/${themeName}`);
+
+src
+  themes
+    hipster.js  -> 0.chunk.js
+    sheek.js    -> 1.chunk.js
+    stylish.js  -> 2.chunk.js
+    trendy.js   -> 3.chunk.js
+    vintange.js -> 4.chunk.js
+
+The reason Sean says "dynamic" is because Webpack will use the path ("./src/themes") to then build a chunks for every file in that directory. The key point being that it is done at build time.
+
+When to use?
+
+- AB Testing (for instance, you don't need to load both paths).
+- Theming
+- Conventience
+
+** Module Methods
+
+*** Magic Comments
+
+// webpack.config.js
+output: {
+  filename: "bundle.js",
+  chunkFilename: "[name].lazy-chunk.js"
+}
+
+It's up to you if you only want to use for dev, or w/e.
+
+*** Prefetch/Preload
+https://medium.com/webpack/link-rel-prefetch-preload-in-webpack-51a52358f84c
+
+Instead of making a separate http request, you can use prefetch/preload, you can load them ahead of time. Usually prefetch will fetch when the browser is in an idle state.
+
+Some differences:
+- A preloaded chunk starts loading in parallel to the parent chunk. A prefetched chunk starts after the parent chunk finish.
+- A preloaded chunk has medium priority and instantly downloaded. A prefetched chunk is downloaded in browser idle time.
+- A preloaded chunk should be instantly requested by the parent chunk. A prefetched chunk can be used anytime in the future.
+- Browser support is different.
+
+
+
+
+* Plugin System
+Three stages of Webpack:
+Build graph, optimize it, then render.
+
+All of webpack is made of plugins.
+
+What is Tapable?
+- Backbone of plugin system
+- 200 line plugin library
+- The backbone of the plugin system.
+
+Webpack is OOP. Tapable is used to extend methods and behaviors into specific classes. These are tapable instances. There are also hooks like (Compiler.js) shouldEmit, done, additionalpass, etc.
+
+A tapable instance is a class/object that extends Tapable (aka something you can plug into).
+
+7ish Tapable Instances (aka classes)
+Compiler
+
+Compilation (aka the dependency graph)
+Heart of Webpack. It is where Webpack kicks off building the graph, kicks off sealing and rendering it. Contains dependency graph traversal algorithm.
+
+Resolver
+Give a partial path and make sure it exists and gives you full absolute path.
+
+Module Factories
+Module Factories take successfully resolved requests and collect source code for that file. Creates a module object. (Module Factory creates an instance.) There is the Normal Factory and a Context Factory.
+
+Parser
+Parser class that uses Acorn, takes a module object and turns it into an AST. As Webpack walks, if it sees statement like an import/require or dependency, it is added to the module object. (String -> AST) 
+
+Templates
+Data binding for your modules. It creates the code you see in your bundles. So they use templates that ends up in your build (IIFE's).
+

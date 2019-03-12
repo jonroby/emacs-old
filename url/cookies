@@ -4,13 +4,14 @@
 (setq url-cookie-storage
  '((".nodejs.org"
   [url-cookie "__cfduid" "dc26884842c4fbeb6073f2ead48ea2cba1540353836" "Thu, 24-Oct-19 04:03:56 GMT" "/" ".nodejs.org" nil])
+ ("github.com"
+  [url-cookie "has_recent_activity" "1" "Mon, 18 Feb 2019 22:37:34 -0000" "/" "github.com" nil])
  (".typicode.com"
   [url-cookie "__cfduid" "d984626438aaaf74b666da6815a36cb881540369567" "Thu, 24-Oct-19 08:26:07 GMT" "/" ".typicode.com" nil])
  (".google.com"
   [url-cookie "CGIC" "IgMqLyo" "Wed, 24-Apr-2019 19:00:30 GMT" "/search" ".google.com" nil]
   [url-cookie "CGIC" "IgMqLyo" "Wed, 24-Apr-2019 19:00:30 GMT" "/complete/search" ".google.com" nil]
-  [url-cookie "NID" "142=D9qIcp_C_nVpYu_X2h_bGmKA6JXQ-pjLXR4uNmdS3L9JNyhQcjsuglYkqjMPlScYrmMBGS_etDeQ1U_MHrbnGA4ypAoxz1tzLxuoTAmw_ebcvkRE4Bxd-RhD_YcuEoSNrMiyeu0M5o_L_ruyYd7l_wQnZp4rayjI32GUHSezy28" "Thu, 25-Apr-2019 04:05:54 GMT" "/" ".google.com" nil]
-  [url-cookie "1P_JAR" "2018-10-24-04" "Fri, 23-Nov-2018 04:05:54 GMT" "/" ".google.com" nil]))
+  [url-cookie "NID" "142=D9qIcp_C_nVpYu_X2h_bGmKA6JXQ-pjLXR4uNmdS3L9JNyhQcjsuglYkqjMPlScYrmMBGS_etDeQ1U_MHrbnGA4ypAoxz1tzLxuoTAmw_ebcvkRE4Bxd-RhD_YcuEoSNrMiyeu0M5o_L_ruyYd7l_wQnZp4rayjI32GUHSezy28" "Thu, 25-Apr-2019 04:05:54 GMT" "/" ".google.com" nil]))
 )
 (setq url-cookie-secure-storage
  'nil)

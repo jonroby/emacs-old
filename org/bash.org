@@ -1,0 +1,14 @@
+If you're not already familiar with it, I would suggest learning about the basic Unix process model -- fork, execve, wait, open, pipe, dup2 and friends.
+Bash is essentially a DSL for these. A lot of the weirdness you see in the language is due to these abstractions leaking through. For example:
+
+* Quoting is building execve's argv parameter. It's hard to quote correctly if you don't know what exactly you're working towards.
+
+* Redirections are opening and copying file descriptors. It explains their scope, order and nesting behavior.
+
+* Variables are modifying and passing the environment, and their weird scope is due to forks imposed by the process model.
+
+https://news.ycombinator.com/item?id=14634964
+
+Once you know how you can do whatever you want in C through the basic syscalls, Bash is an extremely efficient and far less surprising shortcut to do it.
+
+

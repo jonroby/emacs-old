@@ -58,7 +58,7 @@
 ;; This also makes helm gray highlight flush on the right side.
 ;; However it also makes line numbering off.
 ;; Why all of these side effects?
-(desktop-save-mode 1) ;; This remembers where I last had emacs.
+;; (desktop-save-mode 1) ;; This remembers where I last had emacs.
 
 ;; Setting title bar to transparent background. 
 (add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
@@ -396,12 +396,6 @@
 
 
 
-(global-set-key (kbd "<C-S-up>")     'buf-move-up)
-(global-set-key (kbd "<C-S-down>")   'buf-move-down)
-(global-set-key (kbd "<C-S-left>")   'buf-move-left)
-(global-set-key (kbd "<C-S-right>")  'buf-move-right)
-
-
 
 ;; LANGUAGE SPECIFIC
 
@@ -435,42 +429,31 @@
 (add-to-list 'interpreter-mode-alist '("node" . js2-mode))
 
 
-(setq typescript-indent-level 2)
+
 ;; Tide
 (require 'flycheck)
 
 ;; FOR JS UNCOMMENT THIS (1)
-(defun setup-tide-mode ()
-  (interactive)
-  (tide-setup)
-  (flycheck-mode +1)
-  (setq flycheck-check-syntax-automatically '(save mode-enabled))
-  (eldoc-mode +1)
-  (tide-hl-identifier-mode +1)
-  ;; company is an optional dependency. You have to
-  ;; install it separately via package-install
-  ;; `M-x package-install [ret] company`
-  (company-mode +1))
+;; (defun setup-tide-mode ()
+;;   (interactive)
+;;   (tide-setup)
+;;   (flycheck-mode +1)
+;;   (setq flycheck-check-syntax-automatically '(save mode-enabled))
+;;   (eldoc-mode +1)
+;;   (tide-hl-identifier-mode +1)
+;;   ;; company is an optional dependency. You have to
+;;   ;; install it separately via package-install
+;;   ;; `M-x package-install [ret] company`
+;;   (company-mode +1))
 
 ;; FOR JS UNCOMMENT THIS (2)
 ;; aligns annotation to the right hand side
-;; (setq company-tooltip-align-annotations t)
-
-;; https://github.com/ananthakumaran/tide/issues/229
-(setq typescript-indent-level 2)
+(setq company-tooltip-align-annotations t)
 
 ;; formats the buffer before saving
-(add-hook 'before-save-hook 'tide-format-before-save)
+;; (add-hook 'before-save-hook 'tide-format-before-save)
 
-(add-hook 'typescript-mode-hook #'setup-tide-mode)
-
-(add-hook 'typescript-mode-hook
-          (lambda ()
-            (local-set-key (kbd "C-x C-e") 'ts-send-last-sexp)
-            (local-set-key (kbd "C-M-x") 'ts-send-last-sexp-and-go)
-            (local-set-key (kbd "C-c b") 'ts-send-buffer)
-            (local-set-key (kbd "C-c C-b") 'ts-send-buffer-and-go)
-            (local-set-key (kbd "C-c l") 'ts-load-file-and-go)))
+;; (add-hook 'typescript-mode-hook #'setup-tide-mode)
 
 ;; FOR JS UNCOMMENT THIS (3)
 ;; (add-hook 'js2-mode-hook #'setup-tide-mode)
@@ -545,7 +528,7 @@
             (define-key js2-mode-map (kbd "C-c f p") 'flycheck-previous-error)
             (define-key js2-mode-map (kbd "C-c f f") 'flycheck-first-error)))
 
-(add-hook 'js2-mode-hook 'prettier-js-mode)
+;; (add-hook 'js2-mode-hook 'prettier-js-mode)
 
 ;; (defun comint-clear-buffer ()
 ;;   (interactive)
@@ -609,7 +592,7 @@
 
 ;; END LANGUAGE SPECIFIC
 
-;; (global-set-key (kbd "s-f") 'browse-url-at-point)
+
 
 (add-to-list 'auto-mode-alist '("\\.http\\'" . restclient-mode))
 
@@ -626,7 +609,7 @@
  '(org-agenda-files nil)
  '(package-selected-packages
    (quote
-    (elixir-mode ts-comint buffer-move helm-swoop tide flycheck rjsx-mode prettier-js nodejs-repl js-comint yasnippet-snippets indium ace-window exec-path-from-shell restclient olivetti fountain-mode engine-mode browse-kill-ring org-bullets rainbow-delimiters npm-mode yasnippet avy aggressive-indent dumb-jump drag-stuff anzu multiple-cursors powerline magit racket-mode sml-mode solidity-mode helm-ag haskell-mode helm-projectile projectile company ivy nord-theme)))
+    (helm-swoop tide flycheck rjsx-mode prettier-js nodejs-repl js-comint yasnippet-snippets indium ace-window exec-path-from-shell restclient olivetti fountain-mode engine-mode browse-kill-ring org-bullets rainbow-delimiters npm-mode yasnippet avy aggressive-indent dumb-jump drag-stuff anzu multiple-cursors powerline magit racket-mode sml-mode solidity-mode helm-ag haskell-mode helm-projectile projectile company ivy nord-theme)))
  '(show-paren-mode t))
 
 (custom-set-faces

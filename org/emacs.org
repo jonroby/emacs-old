@@ -74,7 +74,9 @@
 
 
 
-
+** TODO Git commands in Eshell
+** TODO Remember how to go back to previous jump
+** DONE Quotes around next empty space, so no deleting back and forth
 * Docs
 
 ** Kill and Yank

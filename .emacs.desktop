@@ -2,114 +2,414 @@
 ;; --------------------------------------------------------------------------
 ;; Desktop File for Emacs
 ;; --------------------------------------------------------------------------
-;; Created Thu Nov 22 13:27:30 2018
+;; Created Wed Feb 13 21:36:04 2019
 ;; Desktop file format version 208
 ;; Emacs version 26.1
 
 ;; Global section:
-(setq desktop-saved-frameset [frameset 1 (23543 8002 246730 0) (desktop . "208") "JonRoby@Jons-MacBook-Pro.local" nil nil ((((minibuffer . t) (font-backend mac-ct) (fontsize . 0) (font . "-*-Source Code Pro-normal-normal-normal-*-15-*-*-*-m-0-iso10646-1") (border-width . 0) (internal-border-width . 2) (right-divider-width . 0) (bottom-divider-width . 0) (vertical-scroll-bars) (horizontal-scroll-bars) (foreground-color . "#D8DEE9") (background-color . "#2E3440") (line-spacing) (left-fringe . 8) (right-fringe . 0) (no-special-glyphs) (undecorated) (ns-appearance . dark) (ns-transparent-titlebar . t) (z-group) (no-focus-on-map) (no-accept-focus) (menu-bar-lines . 0) (tool-bar-lines . 0) (title) (icon-type) (auto-raise) (auto-lower) (cursor-type . box) (scroll-bar-width . 0) (scroll-bar-height . 0) (alpha) (fullscreen) (display-type . color) (background-mode . dark) (cursor-color . "#D8DEE9") (environment) (scroll-bar-background . "#4C566A") (frameset--id . "3482-2B0B-0C5F-765F") (frameset--mini t . t) (modeline . t) (unsplittable) (icon-name) (display . "Jons-MacBook-Pro.local") (explicit-name) (tool-bar-position . top) (visibility . t) (height . 44) (width . 118) (left . 357) (top . 23)) ((min-height . 8) (min-width . 10) (min-height-ignore . 6) (min-width-ignore . 4) (min-height-safe . 2) (min-width-safe . 2) (min-pixel-height . 152) (min-pixel-width . 90) (min-pixel-height-ignore . 114) (min-pixel-width-ignore . 36) (min-pixel-height-safe . 38) (min-pixel-width-safe . 18)) vc (pixel-width . 1070) (pixel-height . 817) (total-width . 118) (total-height . 43) (normal-height . 1.0) (normal-width . 1.0) (combination-limit) (leaf (pixel-width . 1070) (pixel-height . 418) (total-width . 118) (total-height . 22) (normal-height . 0.5) (normal-width . 1.0) (buffer "init.el" (selected . t) (hscroll . 0) (fringes 16 0 nil) (margins nil) (scroll-bars nil 0 t nil 0 t) (vscroll . 0) (dedicated) (point . 13605) (start . 13257))) (leaf (last . t) (pixel-width . 1070) (pixel-height . 399) (total-width . 118) (total-height . 21) (normal-height . 0.5) (normal-width . 1.0) (buffer " *Flycheck checkers*" (selected) (hscroll . 0) (fringes 16 0 nil) (margins nil) (scroll-bars nil 0 t nil 0 t) (vscroll . 0) (dedicated) (point . 201) (start . 1)))))])
+(setq desktop-saved-frameset [frameset 1 (23652 65092 176334 0) (desktop . "208") "JonRoby@Jons-MacBook-Pro.local" nil nil ((((minibuffer . t) (font-backend mac-ct) (fontsize . 0) (font . "-*-Source Code Pro-normal-normal-normal-*-15-*-*-*-m-0-iso10646-1") (border-width . 0) (internal-border-width . 2) (right-divider-width . 0) (bottom-divider-width . 0) (vertical-scroll-bars) (horizontal-scroll-bars) (foreground-color . "#D8DEE9") (background-color . "#2E3440") (line-spacing) (left-fringe . 8) (right-fringe . 8) (no-special-glyphs) (undecorated) (ns-appearance . dark) (ns-transparent-titlebar . t) (z-group) (no-focus-on-map) (no-accept-focus) (menu-bar-lines . 0) (tool-bar-lines . 0) (title) (icon-type) (auto-raise) (auto-lower) (cursor-type . box) (scroll-bar-width . 0) (scroll-bar-height . 0) (alpha) (fullscreen) (display-type . color) (background-mode . dark) (cursor-color . "#D8DEE9") (environment) (scroll-bar-background . "#4C566A") (frameset--id . "7DE1-2927-6E97-B53F") (frameset--mini t . t) (modeline . t) (unsplittable) (icon-name) (display . "Jons-MacBook-Pro.local") (explicit-name) (tool-bar-position . top) (visibility . t) (height . 44) (width . 107) (left . 457) (top . 23)) ((min-height . 4) (min-width . 10) (min-height-ignore . 3) (min-width-ignore . 4) (min-height-safe . 1) (min-width-safe . 2) (min-pixel-height . 76) (min-pixel-width . 90) (min-pixel-height-ignore . 57) (min-pixel-width-ignore . 36) (min-pixel-height-safe . 19) (min-pixel-width-safe . 18)) leaf (pixel-width . 979) (pixel-height . 817) (total-width . 108) (total-height . 43) (normal-height . 1.0) (normal-width . 1.0) (buffer "index.js<static>" (selected . t) (hscroll . 0) (fringes 16 0 nil) (margins nil) (scroll-bars nil 0 t nil 0 t) (vscroll . 0) (dedicated) (point . 509) (start . 1))))])
 (setq desktop-missing-file-warning nil)
 (setq tags-file-name nil)
 (setq tags-table-list nil)
-(setq search-ring '("compose" "tide"))
+(setq search-ring '("main" "table" "title" "padding" "side" "padding-b" "over" "padd" "map" "form" "padd" "cw" "You" "You'r" "this.up" "this.up = "))
 (setq regexp-search-ring nil)
 (setq register-alist nil)
-(setq file-name-history '("~/Desktop/mod-cli/package.json" "~/Desktop/mod-cli/src/helpers/compose.ts" "~/Desktop/mod-cli/tsconfig.json" "~/.emacs.d/init.el" "~/Desktop/mod-cli/tslint.json" "~/Desktop/mod-cli/src/helpers/importCompose.ts" "TAGS" "~/Desktop/mod-cli/src/helpers/__tests__/compose.js" "~/.emacs.d/init.el" "~/Desktop/mod-cli/tsconfig.js" "~/Desktop/mod-cli/src/helpers/__tests__/readFile.js" "~/Desktop/mod-cli/src/helpers/conditionalRequire.js" "~/Desktop/mod-cli/src/helpers/__tests__/conditionalRequire.js" "~/.emacs.d/init.el" "~/.emacs.d/init.el" "~/Desktop/mod-cli/jest.config.js" "~/Desktop/mod-cli/src/helpers/compose.js" "~/Desktop/mod-cli/.flowconfig" "~/Desktop/mod-cli/src/helpers/readFile.js" "~/Desktop/mod-cli/.DS_Store" "~/Desktop/mod-cli/index.js" "~/.emacs.d/.emacs.desktop" "~/Desktop/mod-cli/src/helpers/__tests__/writeToFile.js" "~/Desktop/mod-cli/__mocks__/fs.js" "~/Desktop/mod-cli/__mocks__/require.js" "~/Desktop/mod-cli/coverage/coverage-final.json" "~/Desktop/mod-cli/src/index.js" "~/.emacs.d/init.el" "~/Desktop/mod-cli/src/helpers/writeToFile.js" "~/Desktop/mod-cli/src/helpers/index.js" "~/Desktop/mod-cli/src/helpers/__mocks__/fs.js" "~/Desktop/mod-cli/src/helpers/__tests__/testFile.js" "~/.emacs.d/init.el" "~/Desktop/mod-cli/src/__tests__/index.js" "~/Desktop/mod-cli/helpers/conditionalRequire.js" "~/Desktop/mod-cli/helpers/readFile.js" "~/Desktop/gen/mod-cli-nextjs-example-plugin/config.js" "~/Desktop/gen/mod-cli-nextjs-example-plugin/mods/index.js" "~/Desktop/gen/mod-cli-nextjs-example-plugin/index.js" "~/Desktop/fe/testing-workshop/other/whats-a-mock/jest" "~/Desktop/mod-cli/LICENSE" "~/Desktop/mod-cli/.gitignore" "~/Desktop/gen/mod-cli/package.json" "~/Desktop/gen/mod-cli/package-lock.json" "~/Desktop/gen/mod-cli/index.js" "~/Desktop/gen/mod-cli/helpers/writeToFile.js" "~/Desktop/gen/mod-cli/helpers/readFile.js" "~/Desktop/gen/mod-cli/helpers/index.js" "~/Desktop/gen/mod-cli/helpers/compose.js" "~/Desktop/gen/mod-cli/README.md" "~/Desktop/gen/mod-cli/.eslintrc.json" "~/Desktop/gen/mod-cli/.eslintrc" "~/Desktop/gen/mod-cli/#.eslintrc#" "~/Desktop/gen/mod-cli/#index.js#" "~/.bash_profile" "~/.bashrc" "~/.emacs.d/init.el" "~/Desktop/JonRoby/grok/programmingLanguages/Unit2/week1/hw4test.rkt" "~/Desktop/JonRoby/grok/programmingLanguages/Unit2/week1/hw1.rkt" "~/Desktop/JonRoby/grok/programmingLanguages/Unit2/week1/12_delayedEvaluation.rkt" "~/Desktop/JonRoby/grok/programmingLanguages/Unit2/week1/13_avoidUnnecessaryComputations.rkt" "~/Desktop/JonRoby/grok/programmingLanguages/Unit2/week1/14_delayAndForce.rkt" "~/Desktop/test.js" "~/Desktop/JonRoby/primes.js" "~/Desktop/JonRoby/grok/programmingInHaskell/01_Introduction/ex2.hs" "~/Desktop/JonRoby/grok/nand2tetris/projects/03/a/PC.hdl" "~/Desktop/JonRoby/grok/nand2tetris/projects/03/a/Register.hdl" "~/Desktop/JonRoby/grok/nand2tetris/projects/03/b/RAM16K.hdl" "~/Desktop/JonRoby/grok/nand2tetris/projects/01/DMux4Way.hdl" "~/Desktop/JonRoby/grok/nand2tetris/projects/01/Mux4Way16.hdl" "~/Desktop/JonRoby/grok/nand2tetris/projects/03/b/RAM4K.hdl" "~/Desktop/JonRoby/grok/nand2tetris/projects/03/b/RAM512.hdl" "~/Desktop/JonRoby/grok/nand2tetris/projects/03/a/RAM64.hdl" "~/Desktop/JonRoby/grok/programmingLanguages/Unit2/week1/08_topLevelBindings.rkt" "~/Desktop/JonRoby/grok/programmingLanguages/Unit2/week1/07_localBindings.rkt" "~/Desktop/JonRoby/grok/programmingLanguages/Unit2/week1/06_cond.rkt" "~/Desktop/JonRoby/grok/programmingLanguages/Unit2/week1/04_parensMatter.rkt" "~/Desktop/JonRoby/grok/programmingLanguages/Unit2/week1/03_racketSyntax.rkt" "~/Desktop/JonRoby/grok/programmingLanguages/Unit2/week1/01_racketDefsFunctionsConditionals.rkt" "~/Desktop/JonRoby/grok/programmingLanguages/Unit2/week1/02_racketLists.rkt" "~/Desktop/JonRoby/grok/programmingInHaskell/09_theCountdownProblem/test.hs" "~/Desktop/JonRoby/grok/programmingInHaskell/09_theCountdownProblem/countdown.hs" "~/Desktop/testmagit/testrestclient.txt" "~/.emacs.d/org/emacs.org" "~/.emacs.d/org/first.org" "~/.emacs.d/org/emacs.org~" "~/.emacs.d/org/life.org" "~/.emacs.d/org/first.org~" "~/.oracle_jre_usage/7071805d7dc1768.timestamp" "~/.emacs.d/org/fandor.org" "~/Desktop/testmagit/nodeServer/#server.js#" "~/.emacs.d/projectile-bookmarks.eld" "~/Desktop/JonRoby/grok/programmingLanguages/Unit2/week1/11_mconsForMutablePairs.rkt" "~/Desktop/Fandor/noir/.babelrc" "~/Desktop/Fandor/noir/bin/sync-assets.js" "~/Desktop/testmagit/nodeServer/server.js" "~/Desktop/JonRoby/grok/programmingLanguages/Unit1/week1/test.sml" "~/Desktop/JonRoby/grok/programmingLanguages/Unit1/week1/week1.sml" "~/Desktop/noir/src/server/graphql/types/movie-type.js" "~/Desktop/noir/src/server/graphql/schema.js"))
+(setq file-name-history '("~/Desktop/interviews/coding-test-jonathan-roby/src/static/index.js" "~/Desktop/interviews/coding-test-jonathan-roby/notes.txt" "~/Desktop/interviews/coding-test-jonathan-roby/src/static/index.html" "~/Desktop/interviews/coding-test-jonathan-roby/src/static/tables.js" "~/Desktop/interviews/coding-test-jonathan-roby/src/static/index.css" "~/Desktop/interviews/coding-test-jonathan-roby/src/static/normalize.css" "~/Desktop/interviews/coding-test-jonathan-roby/src/app.js" "~/Desktop/interviews/coding-test-jonathan-roby/src/index.js" "~/Desktop/interviews/roofstock/src/redux/sagas/requestMethods/rest.js" "~/Desktop/interviews/aspire_iq_prep/main.js" "~/Desktop/interviews/coding-test-jonathan-roby/src/lib/index.js" "~/Desktop/interviews/coding-test-jonathan-roby/src/lib/settings.js" "~/Desktop/interviews/coding-test-jonathan-roby/src/lib/serializers/index.js" "~/Desktop/interviews/coding-test-jonathan-roby/src/lib/schemas/exam_result.json" "~/Desktop/interviews/coding-test-jonathan-roby/src/lib/fixtures/index.js" "~/Desktop/interviews/coding-test-jonathan-roby/src/lib/db.js" "~/Desktop/interviews/coding-test-jonathan-roby/src/api/v1/exams/:id/index.get.js" "~/Desktop/interviews/coding-test-jonathan-roby/src/api/v1/exams/app.js" "~/Desktop/interviews/coding-test-jonathan-roby/src/api/v1/app.js" "~/Desktop/interviews/coding-test-jonathan-roby/src/api/app.js" "~/Desktop/interviews/coding-test-jonathan-roby/src/workers/base_worker.js" "~/Desktop/interviews/coding-test-jonathan-roby/src/workers/score.js" "~/Desktop/interviews/coding-test-jonathan-roby/src/api/v1/exams/index.get.js" "~/Desktop/interviews/coding-test-jonathan-roby/src/api/v1/students/:id/index.get.js" "~/Desktop/interviews/coding-test-jonathan-roby/src/api/v1/students/app.js" "~/Desktop/interviews/coding-test-jonathan-roby/src/api/v1/exams/index.get.spec.js" "~/Desktop/interviews/memory-game/index.html" "~/Desktop/mod-cli-prep/@mod-cli/mod-react-plugin/index.js" "~/Desktop/roofstock/src/components/App.jsx" "~/Desktop/roofstock/notes.txt" "~/Desktop/roofstock/src/components/ListItem.jsx" "~/Desktop/roofstock/src/components/Address.jsx" "~/Desktop/roofstock/src/components/card.css" "~/Desktop/roofstock/src/components/list-item.css" "~/Desktop/roofstock/src/components/list-view.css" "~/Desktop/roofstock/src/components/" "~/Desktop/roofstock/src/components/NewComp.jsx" "~/Desktop/roofstock/node_modules/@mod-cli/mod-react-plugin/index.js" "~/Desktop/roofstock/node_modules/@mod-cli/mod-react-plugin/package.json" "~/Desktop/roofstock/.mod" "~/Desktop/roofstock/src/redux/actions/constants.js" "~/Desktop/mod-react/node_modules/@mod-cli/mod-react-plugin/index.js" "~/Desktop/mod-react/node_modules/@mod-cli/mod-react-plugin/package.json" "~/Desktop/mod-react/src/redux/actions/creators.js" "~/Desktop/mod-react/src/redux/actions/constants.js" "~/Desktop/mod-react/src/components/TestComp.jsx" "~/Desktop/mod-cli-prep/@mod-cli/mod-cli/src/lib/getInput.js" "~/Desktop/mod-cli-prep/@mod-cli/mod-cli/src/main.js" "~/.nvm/versions/node/v8.11.2/lib/node_modules/@mod-cli/mod-cli/package.json" "~/Desktop/roofstock/src/components/App.jsx" "~/Desktop/roofstock/src/components/" "~/Desktop/roofstock/src/components/ViewSelector.jsx" "~/Desktop/o1/demo/src/index.css" "~/Desktop/o1/demo/src/App.jsx" "~/Desktop/o1/demo/src/App.js" "~/Desktop/coding-test-jonathan-roby/src/lib/index.js" "~/Desktop/coding-test-jonathan-roby/src/lib/db.js" "~/Desktop/coding-test-jonathan-roby/src/lib/settings.js" "~/Desktop/coding-test-jonathan-roby/src/index.js" "~/Desktop/coding-test-jonathan-roby/src/app.js" "~/Desktop/coding-test-jonathan-roby/src/static/index.html" "~/Desktop/coding-test-jonathan-roby/src/static/index.js" "~/Desktop/coding-test-jonathan-roby/src/static/index.css" "~/Desktop/coding-test-jonathan-roby/src/static/normalize.css" "~/Finance/test.txt" "~/Desktop/roofstock/src/components/ListView.jsx" "~/Desktop/roofstock/src/components/Navbar.jsx" "~/Desktop/roofstock/src/components/Properties.jsx" "~/Desktop/roofstock/src/components/CardView.jsx" "~/Desktop/coding-test-jonathan-roby/src/api/app.js" "~/Desktop/coding-test-jonathan-roby/src/lib/serializers/index.js" "~/Desktop/coding-test-jonathan-roby/src/lib/schemas/exam_result.json" "~/Documents/Social/texts.txt" "~/Desktop/roofstock/src/redux/sagas/requestMethods/rest.js" "~/Desktop/roofstock/src/redux/sagas/requests/details.js" "~/Desktop/lilt/doc/src/App.jsx" "~/Desktop/lilt/doc/src/App.css" "~/Desktop/lilt/doc/src/App.js" "~/Desktop/lilt/doc/package.json" "~/Desktop/roam/src/App.jsx" "~/Desktop/roam/src/App.css" "~/Desktop/roam/src/index.css" "~/Desktop/roam/src/index.js" "~/Desktop/roam/src/App.js" "~/Desktop/roofstock/src/components/Details.jsx" "~/Desktop/roofstock/src/components/Card.jsx" "~/Desktop/roofstock/src/redux/reducers/rootReducer.js" "~/Desktop/roofstock/src/redux/reducers/properties.js" "~/Desktop/roofstock/src/redux/reducers/details.js" "~/Desktop/roofstock/src/redux/actions/creators.js" "~/Desktop/roofstock/src/redux/sagas/requestMethods/index.js" "~/Desktop/roofstock/src/redux/sagas/requestMethods/graphql.js" "~/Desktop/roofstock/src/redux/sagas/rootSaga.js" "~/Desktop/roofstock/src/redux/sagas/requests/properties.js" "~/Desktop/roofstock/src/redux/sagas/details.js" "~/Desktop/roofstock/src/redux/sagas/properties.js" "~/Desktop/roofstock/src/redux/middlewares/loggerMiddleware.js" "~/Desktop/roofstock/src/redux/middlewares/index.js" "~/Desktop/roofstock/src/redux/api/index.js" "~/Desktop/roofstock/src/components/app.css"))
 
 ;; Buffer section -- buffers listed in same order as in buffer list:
 (desktop-create-buffer 208
-  "/Users/JonRoby/.emacs.d/init.el"
-  "init.el"
-  'emacs-lisp-mode
-  '(eldoc-mode override-global-mode yas-minor-mode company-mode anzu-mode drag-stuff-mode auto-revert-mode magit-file-mode projectile-mode flycheck-mode)
-  13605
-  '(13837 nil)
+  "/Users/JonRoby/Desktop/interviews/coding-test-jonathan-roby/src/static/index.js"
+  "index.js"
+  'js2-mode
+  '(override-global-mode yas-minor-mode company-mode anzu-mode drag-stuff-mode magit-file-mode projectile-mode flycheck-mode prettier-js-mode)
+  509
+  '(490 nil)
   nil
   nil
-  '((buffer-display-time 23543 7867 44208 0) (buffer-file-coding-system . utf-8-unix))
-  '((mark-ring (13605 13486 13967 14013 13937 13919 13838 14346 14932 1 13911))))
+  '((buffer-display-time 23652 65053 206840 0) (buffer-file-coding-system . undecided-unix))
+  '((mark-ring (649 469 164 353 345 327 316 1 857 275 217 605 628 70 489 651))))
 
 (desktop-create-buffer 208
-  "/Users/JonRoby/Desktop/mod-cli/src/helpers/compose.ts"
-  "compose.ts"
-  'typescript-mode
-  '(eldoc-mode override-global-mode yas-minor-mode company-mode anzu-mode drag-stuff-mode magit-file-mode projectile-mode flycheck-mode tide-mode)
-  168
-  '(166 nil)
-  nil
-  nil
-  '((buffer-display-time 23543 7867 43630 0) (buffer-file-coding-system . undecided-unix))
-  '((mark-ring (213 1 164 147 193))))
-
-(desktop-create-buffer 208
-  "/Users/JonRoby/Desktop/mod-cli/package.json"
-  "package.json"
-  'js-mode
+  "/Users/JonRoby/Desktop/interviews/coding-test-jonathan-roby/src/static/index.html"
+  "index.html"
+  'mhtml-mode
   '(override-global-mode yas-minor-mode company-mode anzu-mode drag-stuff-mode auto-revert-mode magit-file-mode projectile-mode flycheck-mode)
-  734
-  '(1 nil)
+  1
+  '(703 nil)
   nil
   nil
-  '((buffer-display-time 23543 7816 401361 0) (buffer-file-coding-system . undecided-unix))
+  '((buffer-display-time 23652 65053 206181 0) (buffer-file-coding-system . utf-8-unix))
+  '((mark-ring (703 736 845 749 792 491 693 704 652 400))))
+
+(desktop-create-buffer 208
+  "/Users/JonRoby/Desktop/interviews/coding-test-jonathan-roby/notes.txt"
+  "notes.txt"
+  'text-mode
+  '(override-global-mode yas-minor-mode company-mode anzu-mode drag-stuff-mode magit-file-mode projectile-mode flycheck-mode)
+  456
+  '(243 nil)
+  nil
+  nil
+  '((buffer-display-time 23652 64966 495303 0) (buffer-file-coding-system . utf-8-unix))
+  '((mark-ring (243 45 1 13 455))))
+
+(desktop-create-buffer 208
+  "/Users/JonRoby/Desktop/interviews/coding-test-jonathan-roby/src/workers/score.js"
+  "score.js"
+  'js2-mode
+  '(override-global-mode yas-minor-mode company-mode anzu-mode drag-stuff-mode auto-revert-mode magit-file-mode projectile-mode flycheck-mode prettier-js-mode)
+  326
+  '(9 nil)
+  nil
+  nil
+  '((buffer-display-time 23652 64346 941692 0) (buffer-file-coding-system . undecided-unix))
   '((mark-ring nil)))
 
 (desktop-create-buffer 208
-  "/Users/JonRoby/Desktop/mod-cli/tsconfig.js"
-  "tsconfig.js"
+  "/Users/JonRoby/Desktop/interviews/coding-test-jonathan-roby/src/static/tables.js"
+  "tables.js"
   'js2-mode
-  '(override-global-mode yas-minor-mode company-mode anzu-mode drag-stuff-mode magit-file-mode projectile-mode flycheck-mode tide-mode)
-  157
+  '(override-global-mode yas-minor-mode company-mode anzu-mode drag-stuff-mode magit-file-mode projectile-mode flycheck-mode prettier-js-mode)
+  1560
+  '(2373 nil)
+  nil
+  nil
+  '((buffer-display-time 23652 64208 20461 0) (buffer-file-coding-system . utf-8-unix))
+  '((mark-ring (1820 2010 343 300 2306 124 1624 1127 2373 2315 27 1 16 751 165 1398))))
+
+(desktop-create-buffer 208
+  "/Users/JonRoby/Desktop/interviews/coding-test-jonathan-roby/src/static/normalize.css"
+  "normalize.css"
+  'css-mode
+  '(override-global-mode yas-minor-mode company-mode anzu-mode drag-stuff-mode magit-file-mode projectile-mode flycheck-mode)
+  6139
   '(1 nil)
   nil
   nil
-  '((buffer-display-time 23543 7735 559525 0) (buffer-file-coding-system . undecided-unix))
-  '((mark-ring (26 30))))
+  '((buffer-display-time 23652 63982 5306 0) (buffer-file-coding-system . undecided-unix))
+  '((mark-ring nil)))
 
 (desktop-create-buffer 208
-  "/Users/JonRoby/Desktop/mod-cli/tsconfig.json"
-  "tsconfig.json"
-  'js-mode
+  "/Users/JonRoby/Desktop/interviews/coding-test-jonathan-roby/src/static/index.css"
+  "index.css"
+  'css-mode
   '(override-global-mode yas-minor-mode company-mode anzu-mode drag-stuff-mode magit-file-mode projectile-mode flycheck-mode)
-  70
-  '(76 nil)
+  1168
+  '(1168 nil)
   nil
   nil
-  '((buffer-display-time 23543 7608 356256 82000) (buffer-file-coding-system . utf-8-unix))
-  '((mark-ring (171 151 1))))
+  '((buffer-display-time 23652 63930 693258 0) (buffer-file-coding-system . undecided-unix))
+  '((mark-ring (549 648 1192 1619 1))))
 
 (desktop-create-buffer 208
-  "/Users/JonRoby/Desktop/mod-cli/src/helpers/importCompose.ts"
-  "importCompose.ts"
-  'typescript-mode
-  '(eldoc-mode override-global-mode yas-minor-mode company-mode anzu-mode drag-stuff-mode magit-file-mode projectile-mode flycheck-mode tide-mode)
-  66
-  '(43 nil)
+  "/Users/JonRoby/Desktop/interviews/coding-test-jonathan-roby/src/app.js"
+  "app.js"
+  'js2-mode
+  '(override-global-mode yas-minor-mode company-mode anzu-mode drag-stuff-mode auto-revert-mode magit-file-mode projectile-mode flycheck-mode prettier-js-mode)
+  278
+  '(nil nil)
   nil
   nil
-  '((buffer-display-time 23543 7277 835506 81000) (buffer-file-coding-system . utf-8-unix))
-  '((mark-ring (43 43 43 43 43 43 1))))
+  '((buffer-display-time 23652 62484 862822 0) (buffer-file-coding-system . undecided-unix))
+  '((mark-ring nil)))
 
 (desktop-create-buffer 208
-  "/Users/JonRoby/Desktop/mod-cli/tslint.json"
-  "tslint.json"
-  'js-mode
-  '(override-global-mode yas-minor-mode company-mode anzu-mode drag-stuff-mode magit-file-mode projectile-mode flycheck-mode)
+  "/Users/JonRoby/Desktop/interviews/coding-test-jonathan-roby/src/index.js"
+  "index.js"
+  'js2-mode
+  '(override-global-mode yas-minor-mode company-mode anzu-mode drag-stuff-mode auto-revert-mode magit-file-mode projectile-mode flycheck-mode prettier-js-mode)
   1
   '(nil nil)
   nil
   nil
-  '((buffer-display-time 23543 7051 434352 81000) (buffer-file-coding-system . undecided-unix))
+  '((buffer-display-time 23652 62478 951022 0) (buffer-file-coding-system . undecided-unix))
   '((mark-ring nil)))
 
 (desktop-create-buffer 208
-  "/Users/JonRoby/Desktop/mod-cli/src/helpers/__tests__/compose.js"
-  "compose.js"
+  "/Users/JonRoby/Desktop/interviews/basic_questions.txt"
+  "basic_questions.txt"
+  'text-mode
+  '(override-global-mode yas-minor-mode company-mode anzu-mode drag-stuff-mode projectile-mode flycheck-mode)
+  126
+  '(nil nil)
+  nil
+  nil
+  '((buffer-display-time 23652 23213 894424 0) (buffer-file-coding-system . utf-8-unix))
+  '((mark-ring nil)))
+
+(desktop-create-buffer 208
+  "/Users/JonRoby/Desktop/interviews/roofstock/src/redux/sagas/requestMethods/rest.js"
+  "rest.js"
   'js2-mode
-  '(override-global-mode yas-minor-mode company-mode anzu-mode drag-stuff-mode magit-file-mode projectile-mode flycheck-mode tide-mode)
-  7
+  '(override-global-mode yas-minor-mode company-mode anzu-mode drag-stuff-mode auto-revert-mode magit-file-mode projectile-mode flycheck-mode prettier-js-mode)
+  1
+  '(287 nil)
+  nil
+  nil
+  '((buffer-display-time 23651 43908 954254 0) (buffer-file-coding-system . undecided-unix))
+  '((mark-ring (1))))
+
+(desktop-create-buffer 208
+  "/Users/JonRoby/Desktop/interviews/aspire_iq_prep/main.js"
+  "main.js"
+  'js2-mode
+  '(override-global-mode yas-minor-mode company-mode anzu-mode drag-stuff-mode projectile-mode flycheck-mode prettier-js-mode)
+  74
+  '(283 nil)
+  nil
+  nil
+  '((buffer-display-time 23651 43308 77885 0) (buffer-file-coding-system . undecided-unix))
+  '((mark-ring (285 1 1045 74 352 1128))))
+
+(desktop-create-buffer 208
+  "/Users/JonRoby/Desktop/interviews/coding-test-jonathan-roby/src/lib/index.js"
+  "index.js"
+  'js2-mode
+  '(override-global-mode yas-minor-mode company-mode anzu-mode drag-stuff-mode auto-revert-mode magit-file-mode projectile-mode flycheck-mode prettier-js-mode)
+  304
+  '(nil nil)
+  nil
+  nil
+  '((buffer-display-time 23651 41199 68422 0) (buffer-file-coding-system . undecided-unix))
+  '((mark-ring nil)))
+
+(desktop-create-buffer 208
+  "/Users/JonRoby/Desktop/interviews/coding-test-jonathan-roby/src/lib/settings.js"
+  "settings.js"
+  'js2-mode
+  '(override-global-mode yas-minor-mode company-mode anzu-mode drag-stuff-mode auto-revert-mode magit-file-mode projectile-mode flycheck-mode prettier-js-mode)
+  156
+  '(21 nil)
+  nil
+  nil
+  '((buffer-display-time 23651 41021 221586 0) (buffer-file-coding-system . undecided-unix))
+  '((mark-ring (21 156))))
+
+(desktop-create-buffer 208
+  "/Users/JonRoby/Desktop/interviews/coding-test-jonathan-roby/src/lib/serializers/index.js"
+  "index.js"
+  'js2-mode
+  '(override-global-mode yas-minor-mode company-mode anzu-mode drag-stuff-mode auto-revert-mode magit-file-mode projectile-mode flycheck-mode prettier-js-mode)
+  1
+  '(nil nil)
+  nil
+  nil
+  '((buffer-display-time 23651 40950 938400 0) (buffer-file-coding-system . undecided-unix))
+  '((mark-ring nil)))
+
+(desktop-create-buffer 208
+  "/Users/JonRoby/Desktop/interviews/coding-test-jonathan-roby/src/lib/schemas/exam_result.json"
+  "exam_result.json"
+  'js-mode
+  '(override-global-mode yas-minor-mode company-mode anzu-mode drag-stuff-mode auto-revert-mode magit-file-mode projectile-mode flycheck-mode)
+  1
+  '(nil nil)
+  nil
+  nil
+  '((buffer-display-time 23651 40942 52151 0) (buffer-file-coding-system . undecided-unix))
+  '((mark-ring nil)))
+
+(desktop-create-buffer 208
+  "/Users/JonRoby/Desktop/interviews/coding-test-jonathan-roby/src/lib/fixtures/index.js"
+  "index.js"
+  'js2-mode
+  '(override-global-mode yas-minor-mode company-mode anzu-mode drag-stuff-mode auto-revert-mode magit-file-mode projectile-mode flycheck-mode prettier-js-mode)
+  68
+  '(68 nil)
+  nil
+  nil
+  '((buffer-display-time 23651 40917 586366 0) (buffer-file-coding-system . undecided-unix))
+  '((mark-ring (68 73))))
+
+(desktop-create-buffer 208
+  "/Users/JonRoby/Desktop/interviews/coding-test-jonathan-roby/src/lib/db.js"
+  "db.js"
+  'js2-mode
+  '(override-global-mode yas-minor-mode company-mode anzu-mode drag-stuff-mode auto-revert-mode magit-file-mode projectile-mode flycheck-mode prettier-js-mode)
+  775
+  '(21 nil)
+  nil
+  nil
+  '((buffer-display-time 23651 40884 769624 0) (buffer-file-coding-system . undecided-unix))
+  '((mark-ring (21 1606 1))))
+
+(desktop-create-buffer 208
+  "/Users/JonRoby/Desktop/interviews/coding-test-jonathan-roby/src/api/v1/exams/:id/index.get.js"
+  "index.get.js"
+  'js2-mode
+  '(override-global-mode yas-minor-mode company-mode anzu-mode drag-stuff-mode auto-revert-mode magit-file-mode projectile-mode flycheck-mode prettier-js-mode)
+  190
+  '(nil nil)
+  nil
+  nil
+  '((buffer-display-time 23651 40849 112208 0) (buffer-file-coding-system . undecided-unix))
+  '((mark-ring nil)))
+
+(desktop-create-buffer 208
+  "/Users/JonRoby/Desktop/interviews/coding-test-jonathan-roby/src/api/v1/exams/app.js"
+  "app.js"
+  'js2-mode
+  '(override-global-mode yas-minor-mode company-mode anzu-mode drag-stuff-mode auto-revert-mode magit-file-mode projectile-mode flycheck-mode prettier-js-mode)
+  200
+  '(nil nil)
+  nil
+  nil
+  '((buffer-display-time 23651 40799 728743 0) (buffer-file-coding-system . undecided-unix))
+  '((mark-ring nil)))
+
+(desktop-create-buffer 208
+  "/Users/JonRoby/Desktop/interviews/coding-test-jonathan-roby/src/api/v1/app.js"
+  "app.js"
+  'js2-mode
+  '(override-global-mode yas-minor-mode company-mode anzu-mode drag-stuff-mode auto-revert-mode magit-file-mode projectile-mode flycheck-mode prettier-js-mode)
+  1
+  '(nil nil)
+  nil
+  nil
+  '((buffer-display-time 23651 40797 216933 0) (buffer-file-coding-system . undecided-unix))
+  '((mark-ring nil)))
+
+(desktop-create-buffer 208
+  "/Users/JonRoby/Desktop/interviews/coding-test-jonathan-roby/src/api/app.js"
+  "app.js"
+  'js2-mode
+  '(override-global-mode yas-minor-mode company-mode anzu-mode drag-stuff-mode auto-revert-mode magit-file-mode projectile-mode flycheck-mode prettier-js-mode)
+  1
+  '(nil nil)
+  nil
+  nil
+  '((buffer-display-time 23651 40793 313142 0) (buffer-file-coding-system . undecided-unix))
+  '((mark-ring nil)))
+
+(desktop-create-buffer 208
+  "/Users/JonRoby/Desktop/interviews/coding-test-jonathan-roby/src/workers/base_worker.js"
+  "base_worker.js"
+  'js2-mode
+  '(override-global-mode yas-minor-mode company-mode anzu-mode drag-stuff-mode auto-revert-mode magit-file-mode projectile-mode flycheck-mode prettier-js-mode)
+  1
+  '(nil nil)
+  nil
+  nil
+  '((buffer-display-time 23651 40770 917452 0) (buffer-file-coding-system . undecided-unix))
+  '((mark-ring nil)))
+
+(desktop-create-buffer 208
+  "/Users/JonRoby/Desktop/interviews/coding-test-jonathan-roby/README.md"
+  "README.md"
+  'fundamental-mode
+  '(override-global-mode yas-minor-mode company-mode anzu-mode drag-stuff-mode auto-revert-mode magit-file-mode projectile-mode)
+  270
+  '(nil nil)
+  nil
+  nil
+  '((buffer-display-time 23651 40322 830898 0) (buffer-file-coding-system . undecided-unix))
+  '((mark-ring nil)))
+
+(desktop-create-buffer 208
+  "/Users/JonRoby/Desktop/interviews/coding-test-jonathan-roby/src/api/v1/exams/index.get.js"
+  "index.get.js"
+  'js2-mode
+  '(override-global-mode yas-minor-mode company-mode anzu-mode drag-stuff-mode auto-revert-mode magit-file-mode projectile-mode flycheck-mode prettier-js-mode)
+  84
+  '(nil nil)
+  nil
+  nil
+  '((buffer-display-time 23651 39053 294191 0) (buffer-file-coding-system . undecided-unix))
+  '((mark-ring nil)))
+
+(desktop-create-buffer 208
+  "/Users/JonRoby/Desktop/interviews/coding-test-jonathan-roby/src/api/v1/students/:id/index.get.js"
+  "index.get.js"
+  'js2-mode
+  '(override-global-mode yas-minor-mode company-mode anzu-mode drag-stuff-mode auto-revert-mode magit-file-mode projectile-mode flycheck-mode prettier-js-mode)
+  1
+  '(nil nil)
+  nil
+  nil
+  '((buffer-display-time 23651 38823 244117 0) (buffer-file-coding-system . undecided-unix))
+  '((mark-ring nil)))
+
+(desktop-create-buffer 208
+  "/Users/JonRoby/Desktop/interviews/coding-test-jonathan-roby/src/api/v1/students/app.js"
+  "app.js"
+  'js2-mode
+  '(override-global-mode yas-minor-mode company-mode anzu-mode drag-stuff-mode auto-revert-mode magit-file-mode projectile-mode flycheck-mode prettier-js-mode)
+  1
+  '(nil nil)
+  nil
+  nil
+  '((buffer-display-time 23651 38510 973370 0) (buffer-file-coding-system . undecided-unix))
+  '((mark-ring nil)))
+
+(desktop-create-buffer 208
+  "/Users/JonRoby/Desktop/interviews/coding-test-jonathan-roby/src/api/v1/exams/index.get.spec.js"
+  "index.get.spec.js"
+  'js2-mode
+  '(override-global-mode yas-minor-mode company-mode anzu-mode drag-stuff-mode auto-revert-mode magit-file-mode projectile-mode flycheck-mode prettier-js-mode)
+  1
+  '(nil nil)
+  nil
+  nil
+  '((buffer-display-time 23651 37745 281000 0) (buffer-file-coding-system . undecided-unix))
+  '((mark-ring nil)))
+
+(desktop-create-buffer 208
+  "/Users/JonRoby/Desktop/interviews/memory-game/index.html"
+  "index.html"
+  'mhtml-mode
+  '(override-global-mode yas-minor-mode company-mode anzu-mode drag-stuff-mode projectile-mode flycheck-mode)
+  217
   '(1 nil)
   nil
   nil
-  '((buffer-display-time 23543 5952 351419 589000) (buffer-file-coding-system . undecided-unix))
-  '((mark-ring nil)))
+  '((buffer-display-time 23651 20846 395976 0) (buffer-file-coding-system . utf-8-unix))
+  '((mark-ring (171))))
+
+(desktop-create-buffer 208
+  "/Users/JonRoby/Desktop/interviews/aspire_iq_prep/assignment.js"
+  "assignment.js"
+  'js2-mode
+  '(override-global-mode yas-minor-mode company-mode anzu-mode drag-stuff-mode projectile-mode flycheck-mode prettier-js-mode)
+  1324
+  '(1 nil)
+  nil
+  nil
+  '((buffer-display-time 23651 5813 94498 0) (buffer-file-coding-system . utf-8-unix))
+  '((mark-ring (1 1756 457 488 948 541 628 540 496 1602 668 1160 1160 1160 765 765))))
+
+(desktop-create-buffer 208
+  "/Users/JonRoby/Desktop/Roofstock.txt"
+  "Roofstock.txt"
+  'text-mode
+  '(override-global-mode yas-minor-mode company-mode anzu-mode drag-stuff-mode projectile-mode flycheck-mode)
+  443
+  '(120 nil)
+  nil
+  nil
+  '((buffer-display-time 23650 23647 263399 0) (buffer-file-coding-system . utf-8-unix))
+  '((mark-ring (419 406))))
+
+(desktop-create-buffer 208
+  "/Users/JonRoby/Desktop/3SAT.txt"
+  "3SAT.txt"
+  'text-mode
+  '(override-global-mode yas-minor-mode company-mode anzu-mode drag-stuff-mode projectile-mode flycheck-mode)
+  781
+  '(367 nil)
+  nil
+  nil
+  '((buffer-display-time 23650 1185 541570 0) (buffer-file-coding-system . utf-8-unix))
+  '((mark-ring (320 313 306 447 30 321))))
+
+(desktop-create-buffer 208
+  "/Users/JonRoby/Desktop/mod-cli-prep/@mod-cli/mod-react-plugin/index.js"
+  "index.js"
+  'js2-mode
+  '(override-global-mode yas-minor-mode company-mode anzu-mode drag-stuff-mode auto-revert-mode magit-file-mode projectile-mode flycheck-mode prettier-js-mode)
+  3918
+  '(143 nil)
+  nil
+  nil
+  '((buffer-display-time 23649 15121 313226 0) (buffer-file-coding-system . undecided-unix))
+  '((mark-ring (1 2123 4578 3701))))
 

@@ -1,0 +1,59 @@
+* Editing
+
+* Debugging
+
+* Networking
+
+* Auditing 
+
+* Node.js Profiling
+
+* Performance Monitoring
+
+* Image performance
+Use <img srcset="small.jpg 300w, large.jpg, 800w" src="fallback.jpg">
+
+* Page Jank (Profiling)
+60fps
+16.66ms
+
+Read and writes should, in principle, be batched. This is rarely
+possible. So check into 
+
+- window.requestAnimationFrame();
+
+- fastdom, which eliminates layout thrashing by batching DOM measurement and
+mutation tasks.
+
+To profile, remember you only want a few seconds.
+
+Performance. Record (3 seconds.)
+
+You can use w,s,a,d, to zoom in/out, left/right, in main (CPU) thread.
+
+Find a wide block and then look for the longest lowest function call
+before it. It is the likely cause.
+
+* Memory (Leaks)
+
+With setInterval be sure to set it to variable and clear it.
+
+In DevTools, Performance is good for spotting memory issue.
+Memory is good for figuring out why.
+
+Go to performance and allow app to run for several seconds.
+
+You don't want to see jig saw chart.
+
+** Memory Tab
+
+   Heap snapshot
+   Take multiple and compare.
+
+   If it takes a long time for memory to grow.
+   Allocations over time.
+
+   Closure
+   
+
+

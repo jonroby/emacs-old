@@ -1,0 +1,75 @@
+COMPUTER
+* Elixir
+Book
+https://github.com/sger/ElixirBooks
+https://pragprog.com/book/tvmelixir/adopting-elixir
+https://pragprog.com/book/cmelixir/metaprogramming-elixir
+http://shop.oreilly.com/product/0636920024149.do
+https://pragprog.com/book/jaerlang2/programming-erlang
+
+* Webpack
+https://frontendmasters.com/courses/webpack-fundamentals/
+https://frontendmasters.com/courses/webpack-plugins/
+https://frontendmasters.com/courses/performance-webpack/
+
+* GraphQL
+https://frontendmasters.com/courses/graphql/
+https://frontendmasters.com/courses/advanced-graphql/
+https://www.howtographql.com/react-apollo/0-introduction/
+
+* Apollo
+https://www.apollographql.com/docs/react/essentials/local-state.html  
+
+
+* Design
+LESS
+Emotion
+Styled System 
+https://frontendmasters.com/courses/css-in-depth-v2/
+https://frontendmasters.com/courses/css-grids-flexbox/
+https://frontendmasters.com/courses/design-for-developers/
+
+* Git/Magit
+https://frontendmasters.com/courses/git-in-depth/
+
+* Clean
+Emacs
+Computer
+Room
+
+
+
+
+* React
+https://frontendmasters.com/courses/advanced-graphql/
+
+https://frontendmasters.com/courses/complete-react-v4/
+https://frontendmasters.com/courses/intermediate-react/
+https://frontendmasters.com/courses/advanced-react-patterns/
+
+
+* Tests
+Jest, Enzyme, React Test Renderer
+https://frontendmasters.com/courses/testing-practices-principles/
+https://frontendmasters.com/courses/testing-react/
+
+
+* TypeScript
+https://frontendmasters.com/courses/typescript/
+
+
+* Performance/Debugging
+https://frontendmasters.com/courses/chrome-dev-tools-v2/
+https://frontendmasters.com/courses/web-performance/
+https://frontendmasters.com/courses/debugging-javascript/
+
+
+* OOP
+POODR
+https://scotch.io/tutorials/build-a-restful-json-api-with-rails-5-part-one
+
+Somehow get ESLINT working locally.
+Try to get variables so you can set up multiple eshell terminals.
+
+* SQL
+https://frontendmasters.com/courses/sql-fundamentals/

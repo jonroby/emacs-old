@@ -1,0 +1,246 @@
+* Chapter 2: Designing a Class with a Single Responsibility
+
+The foundation of an OO system is the message, but the most visible organizational structure is the class.
+
+
+* Chapter 3: Managing Dependencies
+
+** Intro 
+All behavior of a OOP system is dispersed among objects. For any desired behavior, an object either knows it personally, inherits, or knows another object who knows it.
+
+Ch.1 covered the first, Ch. 6 covers the second, this chapter covers the third.
+
+An object depends on another if, when one object changes, the other might be forced to change in turn.
+
+** Recognizing Dependencies
+
+An object has a dependency when it knows
+- The name of another class.
+- The name of a message that it intends to send to someone other than self.
+- The arguments that a message requires.
+- The order of those arguments.
+
+Each of these creates a chance that (example) Gear will be forced to change because of a change to wheel.
+
+Suppose you have a method:
+
+def gear_inches
+  ratio * Wheel.new(rim, tiref.diameter)
+end
+
+This is a coupling that can be removed, using a dependency injection.
+
+def gear_inches
+  ratio * wheel.diameter
+end
+
+Gear previously had explicit dependencies on the Wheel class and on the type and order of its initialization arguments, but through injection these dependencies have been reduced to a single dependency on the diameter method.
+
+** Isolate Dependencies
+
+Metz: Think of every dependency as an alien bacterium that's trying to infect your class. Dependencies are foreign invaders that represent vulnerabilities and they should be concise, explicit, and isolated.
+
+*** 1 Isolate instance creation
+
+If you MUST keep wheel inside the Gear class here's what to do:
+
+def wheel
+  @wheel ||= Wheel.new(rim, tire)
+end
+
+*** 2 Isolate vulnerable external messages
+
+Now imagine
+
+def gear_inches
+  ... complex math
+  foo = intermediate_result * wheel.diameter
+  ... complex math
+end
+
+This can be refactored to
+
+def diameter
+  wheel.diameter
+end
+
+And dropped into the above code.
+
+*** 3 Remove argument order dependencies
+
+def initialize(chainring, cog, wheel) {
+  @chainring = chainring
+  @cog       = cog
+  @wheel     = wheel
+}
+
+The problem is that if the order ever changed, then every caller would have to change its order as well.
+
+def initialize(args) 
+  @chainring = args[:chainring]
+  @cog       = args[:cog]
+  @wheel     = args[:wheel]
+end
+
+*** 4 Explicity define defaults
+
+def initialize(args) 
+  @chainring = args[:chainring] || 40
+  @cog       = args[:cog] || 18
+  @wheel     = args[:wheel]
+end
+
+Though note that if you ever wanted a default to false or nil, it won't work.
+
+5 Isolate Multiparameter Initialization
+
+If you have a framework, you can wrap it, to protect yourself from changes.
+
+** Managing Dependency Direction
+
+*** Reversing Dependencies
+
+Every example above showed Gear depending on Wheel or diameter,
+but the code could easily have been written with the dependencies reversed. Wheel could instead depend on Gear or ratio.
+
+*** Choosing Dependency Direction
+
+Rule: Depend on things that change less often than you do. This is based on three simple truths about code.
+
+1 Some classes are more likely than others to have changes in requirements.
+2 Concrete classes are more likely to change than abstract classes.
+3 Changing a class that has many dependents will result in widespread consequences.
+
+Dependents
+Many        Abstract Zone A  Danger Zone D
+ |
+Few         Neutral Zone B   Neutral Zone C
+            Less ----------- More
+            Likelihood of Requirements change
+
+Abstract Zone: Changes are unlikely, but if they occur, will have broad affects.
+
+Neutral Zone (B): Changes are unlikely and have few side effects.
+
+Neutral Zone (C): Changes are likely but have few side effects.
+
+Danger Zone: These classes will change the changes will cascade into dependents.
+
+Needless to say, you want as little of your code as possible in region D.
+
+
+* Chapter 4: Creating Flexible Interfaces
+
+Types of Interfaces
+1) Methods within a class and how and what to expose to others.
+2) A concept that is broader than a class and is defined by a set of messages.
+
+Chapter 5 covers (2), Chapter 4 covers (1).
+
+** Public Interfaces
+
+- Reveal its primary responsibility
+- Are expected to be invoked by others
+- Will not change on a whim
+- Are safe for others to depend on
+- Are thoroughly documented in the tests
+
+** Private interfaces
+
+- Handle implementation details
+- Are not expected to be sent by other objects
+- Can change for any reason whatsoever
+- Are unsafe for others to depend on
+- May not even be references in the tests
+
+** Constructing an Intention
+
+Domain objects are easy to find, but they are not at the design center of your application. Instead, they are a trap for the unwary. If you fixate on domain objects, you will tend to coerce behavior into them.
+
+** Ask for what instead of telling how
+   
+
+** Law of Demeter
+
+LOD is a set of coding rules that results in loosely coupled objects. Loose coupling is nearly always a virtue but is just one component of design and must be balanced against competing needs. Some demeter violations are harmless, but others expose a failure to correctly identify public interfaces.
+
+Demeter is often paraphrased as "only talk to your immediate neighbors" or "use only one dot".
+
+* Chapter 5: Reducing Costs with Duck Typing
+
+class Trip
+  attr_reader :bicycles, :customers, :vehicle
+  def prepare(preparers)
+    preparers.each {|preparer|
+      case preparer
+      when Mechanic
+	preparer.prepare_bicycles(bicycles)
+      when TripCoordinator
+	preparer.buy_food(customers)
+      when Driver
+	preparer.gas_up(vehicle)
+	preparer.fill_water_tank(vehicle)
+      end
+    }
+  end
+end
+
+Instead, add a perpare_trip method to each class (Mechanic, TripCoordinator, Driver) and instead write prepare as:
+
+def prepare(preparers)
+  preparers.each { |preparer|
+    preparer.prepare_trip(self)
+  }
+end
+
+
+
+* Chapter 6: Acquiring Behavior through Inheritance
+
+Subclasses are specializations of their superclass. For inheritance to work, two things must always be true. First, the objects you are modeling must truly have a generalization-specialization relationship. Second, you must use the correct coding techniques.
+
+Model Bicycle as an abstract class. This version of Bicycle will not define a complete bike, just the bits that all bicycles share. You can expect to create instances of MountainBike and RoadBike, but Bicycle is not a class to which you would ever send the new message.
+
+Ruby doesn't provide syntax that allows you to declare a class as abstract (Java does; if you use abstract, you can't instantiate that class).
+
+Abstract classes exist to be subclassed.
+
+** Template methods
+
+Defining a basic structure in the superclass and sending messages to acquire subclass-specific contributions.
+
+class Bicycle
+  attr_reader :size, :chain, :tire_size
+
+  def initialize(args={})
+    @size = args[:size]
+    @chain = args[:chain] || default_chain
+    @tire_size = args[:tire_size] || default_tire_size
+  end
+
+  def default_chain
+    '10-speed'
+  end
+end
+
+class RoadBike < Bicycle
+  def default_tire_size
+    '23'
+  end
+end
+
+class MountainBike < Bicycle
+  def default_tire_size
+    '2.1'
+  end
+end
+
+What would happen if a new bike class was made, a RecumbentBike, but they didn't know to add default_tire_size. They would receive an error. To make this requirement explicit:
+
+class Bicycle
+  ...
+  def default_tire_size
+    raise NotImplementedError,
+      "This #{self.class} cannot respond to: "
+  end
+end

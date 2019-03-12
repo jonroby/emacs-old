@@ -1,0 +1,48 @@
+browser dev tools
+
+h - hide HTML element
+
+esc - shows console (in non console tab)
+
+computed styles - get a concise list of what happens and then click on arrow
+                  to see where the style is coming from!
+
+different color options - hold shift, then click on color to cycle different color formats
+(hex, rgb, etc.)
+
+Drop and click dom nodes
+
+CSS Specificity - two different classes both apply to element.
+    general li
+    .nav li
+    class
+    id
+    inline
+    !important
+https://specifishity.com/
+
+DOM Breakpoints - right click on element and then you break on whatever you need.
+
+Blackbox libraries (react, jquery, d3, etc.)
+
+Conditional breakpoints
+
+-----
+
+Networking Waterfall
+
+Http could only do 6 TCP requests the rest would get queued.
+
+White - Queue
+        * Too many files *
+Gray - Stalled -> Proxy server
+Light green - DNS lookup
+Orange - Establish connection; TCP Handshake
+Brown - SSL Connection
+Green - Request sent
+Waiting - Time spent waiting for the initial response (TTFB) Time to first byte (Backend)
+	  *DB issue probably*
+Blue - Content Download. Time spent receiving data.
+       *Heavy files*
+       
+
